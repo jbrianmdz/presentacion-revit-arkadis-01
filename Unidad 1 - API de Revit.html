@@ -1,0 +1,2346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Unidad 1 — Introducción a la API de Revit · Arkadis</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="deck-stage.js"></script>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<!-- ============== SECCIÓN 0 — PORTADA Y AGENDA ============== -->
+
+<!-- 1: Portada -->
+<section data-label="01 Portada">
+  <div class="slide-frame portada" style="justify-content:center;">
+    <div class="eyebrow">Módulo 8 · Unidad 1 · Arkadis</div>
+    <h1 class="pt">Desarrollo de Aplicaciones para Revit</h1>
+    <div class="ps">Introducción a la API de Revit · 3 horas en vivo</div>
+    <div style="margin-top:120px; display:flex; gap:80px; align-items:flex-end;">
+      <div>
+        <div style="font-size:22px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:12px;">Instructor</div>
+        <div style="font-size:32px; font-weight:600;">Ing. Brian Mendoza Márquez</div>
+        <div style="font-size:24px; color:rgba(255,255,255,0.75);">Especialista en Automatizaciones</div>
+      </div>
+      <div>
+        <div style="font-size:22px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:12px;">Fecha</div>
+        <div style="font-size:32px; font-weight:600;">[Fecha]</div>
+      </div>
+    </div>
+    <div style="position:absolute; top:80px; right:100px; display:flex; align-items:center; gap:16px;">
+      <div style="width:48px; height:48px; border:2px solid rgba(255,255,255,0.4); border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:24px;">A</div>
+      <div style="font-size:22px; letter-spacing:0.15em; text-transform:uppercase; font-weight:600;">Arkadis</div>
+    </div>
+  </div>
+</section>
+
+<!-- 2: Hola, soy Brian -->
+<section data-label="02 Hola">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Bienvenida</div>
+    <h1 class="slide-title" style="margin-top:24px;">Hola, soy Brian.</h1>
+    <div style="margin-top:80px; display:grid; grid-template-columns: repeat(3, 1fr); gap:32px;">
+      <div class="card">
+        <div class="ct" style="color:var(--azul-revit);">Mi rol</div>
+        <p class="cb">Ingeniero y especialista en automatizaciones para flujos BIM. Diseño herramientas que convierten tareas de horas en clics.</p>
+      </div>
+      <div class="card">
+        <div class="ct" style="color:var(--azul-revit);">Lo que hago</div>
+        <p class="cb">Add-ins en C# para Revit, integraciones con ERPs, scripts de validación de estándares BIM en oficinas técnicas.</p>
+      </div>
+      <div class="card">
+        <div class="ct" style="color:var(--azul-revit);">Al final del módulo</div>
+        <p class="cb">Vas a tener un add-in propio funcionando, con tu Ribbon y un instalador para entregárselo a un cliente.</p>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">02 / 97</div>
+  </div>
+</section>
+
+<!-- 3: Agenda timeline -->
+<section data-label="03 Agenda">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Agenda · 3 horas</div>
+    <h1 class="slide-title" style="margin-top:24px;">El recorrido de hoy</h1>
+    <div style="margin-top:80px; flex:1; display:flex; flex-direction:column; justify-content:center;">
+      <div style="display:grid; grid-template-columns: repeat(8, 1fr); gap:12px;">
+        <div class="agenda-item"><div class="num">01</div><div class="t">Historia & Evolución</div><div class="time">0:00–0:15</div></div>
+        <div class="agenda-item"><div class="num">02</div><div class="t">¿Qué es la API?</div><div class="time">0:15–0:45</div></div>
+        <div class="agenda-item"><div class="num">03</div><div class="t">C# vs VB.NET</div><div class="time">0:45–1:05</div></div>
+        <div class="agenda-item"><div class="num">04</div><div class="t">Visual Studio</div><div class="time">1:05–1:25</div></div>
+        <div class="agenda-item"><div class="num">05</div><div class="t">Anatomía Add-in</div><div class="time">1:25–1:55</div></div>
+        <div class="agenda-item hot"><div class="num">06</div><div class="t">Hello Revit</div><div class="time">1:55–2:40</div></div>
+        <div class="agenda-item"><div class="num">07</div><div class="t">Ribbon & Setup</div><div class="time">2:40–2:50</div></div>
+        <div class="agenda-item"><div class="num">08</div><div class="t">¿Qué usar? + Q&A</div><div class="time">2:50–3:00</div></div>
+      </div>
+      <div style="margin-top:32px; height:4px; background: linear-gradient(90deg, var(--azul-revit), var(--naranja)); border-radius:2px;"></div>
+      <div style="display:flex; justify-content:space-between; margin-top:16px; font-size:20px; color:var(--gris-600); font-family:'JetBrains Mono',monospace;">
+        <span>0:00</span><span>1:30</span><span>3:00</span>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">03 / 97</div>
+  </div>
+  <style>
+    .agenda-item { background:#fff; border:1px solid #E5E5EA; border-radius:12px; padding:20px; min-height:160px; }
+    .agenda-item .num { font-size:32px; font-weight:800; color:var(--azul-revit); }
+    .agenda-item .t { font-size:20px; font-weight:600; color:var(--gris-900); margin-top:12px; line-height:1.2; }
+    .agenda-item .time { font-size:16px; color:var(--gris-600); font-family:'JetBrains Mono',monospace; margin-top:8px; }
+    .agenda-item.hot { background:var(--azul-profundo); color:#fff; border-color:var(--azul-profundo); }
+    .agenda-item.hot .num { color:#FF8200; }
+    .agenda-item.hot .t { color:#fff; }
+    .agenda-item.hot .time { color:rgba(255,255,255,0.7); }
+  </style>
+</section>
+
+<!-- ============== SECCIÓN 1 — HISTORIA Y EVOLUCIÓN ============== -->
+
+<!-- 4: Divisoria sección 01 -->
+<section data-label="04 Sección 01">
+  <div class="slide-frame divider" style="justify-content:center;">
+    <div class="label">Sección 01</div>
+    <div style="display:flex; align-items:flex-end; gap:48px; margin-top:24px;">
+      <div class="num">01</div>
+      <div style="padding-bottom:60px;">
+        <div class="stitle">La historia que vas<br/>a querer conocer</div>
+        <div style="font-size:28px; color:rgba(255,255,255,0.7); margin-top:32px;">15 minutos · Origen, evolución y stack tecnológico actual</div>
+      </div>
+    </div>
+    <div class="footer light">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num light">04 / 97</div>
+  </div>
+</section>
+
+<!-- 5: Origen del nombre -->
+<section data-label="05 Origen Revit">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Origen · 1997</div>
+    <h1 class="slide-title" style="margin-top:24px;">¿De dónde viene el nombre <span style="color:var(--azul-revit);">Revit</span>?</h1>
+    <div style="margin-top:60px; display:flex; gap:80px; align-items:center; flex:1;">
+      <div style="flex:1;">
+        <div style="font-size:120px; font-weight:800; color:var(--azul-profundo); line-height:1; letter-spacing:-0.04em;">
+          <span style="color:var(--azul-revit);">Rev</span>ise <span style="color:var(--azul-revit);">I</span>ns<span style="color:var(--azul-revit);">t</span>antly
+        </div>
+        <div style="font-size:32px; color:var(--gris-600); margin-top:32px; font-style:italic;">"Revisar al instante"</div>
+      </div>
+      <div style="flex:1;">
+        <ul class="clean">
+          <li><strong>Charles River Software</strong>, fundada el 31 de octubre de 1997</li>
+          <li>Newton, Massachusetts (EE.UU.)</li>
+          <li><strong>Leonid Raiz</strong> e <strong>Irwin Jungreis</strong></li>
+          <li>Ex-PTC, creadores de Pro/Engineer</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">05 / 97</div>
+  </div>
+</section>
+
+<!-- 6: Renombrada y adquirida -->
+<section data-label="06 Adquisición">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">2000–2002 · Nacimiento y adquisición</div>
+    <h1 class="slide-title" style="margin-top:24px;">De startup a producto Autodesk</h1>
+    <div style="margin-top:80px; display:grid; grid-template-columns: repeat(3, 1fr); gap:32px; flex:1;">
+      <div class="card" style="border-top:6px solid var(--azul-revit);">
+        <div style="font-size:22px; color:var(--azul-revit); font-weight:600; letter-spacing:0.2em;">ENERO 2000</div>
+        <div class="ct" style="margin-top:16px; font-size:32px;">Renombrada a Revit Technology Corporation</div>
+        <p class="cb" style="margin-top:16px;">El producto y la empresa pasan a compartir nombre.</p>
+      </div>
+      <div class="card" style="border-top:6px solid var(--naranja);">
+        <div style="font-size:22px; color:var(--naranja); font-weight:600; letter-spacing:0.2em;">5 ABR 2000</div>
+        <div class="ct" style="margin-top:16px; font-size:32px;">Revit 1.0</div>
+        <p class="cb" style="margin-top:16px;">Primera versión pública. Inicia la era del modelado paramétrico para AEC.</p>
+      </div>
+      <div class="card" style="border-top:6px solid var(--menta);">
+        <div style="font-size:22px; color:var(--menta); font-weight:600; letter-spacing:0.2em;">2002</div>
+        <div class="ct" style="margin-top:16px; font-size:32px;">Autodesk adquiere Revit</div>
+        <p class="cb" style="margin-top:16px;">Operación de <strong>US$ 133 millones</strong>. Hoy considerada una de las mejores compras del sector AEC.</p>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">06 / 97</div>
+  </div>
+</section>
+
+<!-- 7: Línea de tiempo visual -->
+<section data-label="07 Timeline">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Línea de tiempo · 1997 → 2027</div>
+    <h1 class="slide-title" style="margin-top:24px;">28 años de evolución</h1>
+    <div style="margin-top:100px; flex:1; position:relative;">
+      <div style="position:absolute; left:60px; right:60px; top:50%; height:4px; background:linear-gradient(90deg, #C4C4C4 0%, var(--azul-revit) 50%, var(--naranja) 100%);"></div>
+      <div style="display:grid; grid-template-columns: repeat(9, 1fr); gap:8px; position:relative;">
+        <div class="tl"><div class="y">1997</div><div class="d"></div><div class="e">Charles River Software</div></div>
+        <div class="tl up"><div class="e">Revit 1.0</div><div class="d"></div><div class="y">2000</div></div>
+        <div class="tl"><div class="y">2002</div><div class="d"></div><div class="e">Adquisición Autodesk</div></div>
+        <div class="tl up"><div class="e">Revit Structure</div><div class="d"></div><div class="y">2005</div></div>
+        <div class="tl"><div class="y">2006</div><div class="d"></div><div class="e">Revit MEP</div></div>
+        <div class="tl up"><div class="e">Dynamo beta</div><div class="d"></div><div class="y">2011</div></div>
+        <div class="tl"><div class="y">2025</div><div class="d hot"></div><div class="e">.NET 8</div></div>
+        <div class="tl up"><div class="e">25.º aniversario</div><div class="d hot"></div><div class="y">2026</div></div>
+        <div class="tl"><div class="y">2027</div><div class="d hot"></div><div class="e">IA + MCP · .NET 10</div></div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">07 / 97</div>
+  </div>
+  <style>
+    .tl { display:flex; flex-direction:column; align-items:center; }
+    .tl .y { font-family:'JetBrains Mono',monospace; font-size:24px; font-weight:700; color:var(--gris-900); margin:0 0 24px 0; }
+    .tl .d { width:24px; height:24px; border-radius:50%; background:#fff; border:4px solid var(--azul-revit); }
+    .tl .d.hot { border-color:var(--naranja); background:var(--naranja); }
+    .tl .e { font-size:20px; font-weight:600; color:var(--gris-700); text-align:center; margin-top:24px; line-height:1.2; max-width:160px; }
+    .tl.up { flex-direction:column-reverse; }
+    .tl.up .y { margin:24px 0 0 0; }
+    .tl.up .e { margin:0 0 24px 0; }
+  </style>
+</section>
+
+<!-- 8: Tabla de versiones -->
+<section data-label="08 Versiones .NET">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Stack tecnológico · Versión por año</div>
+    <h1 class="slide-title" style="margin-top:24px;">Versiones recientes y .NET</h1>
+    <div style="margin-top:48px; flex:1;">
+      <table class="t">
+        <thead>
+          <tr><th>Revit</th><th>Año</th><th>.NET</th><th>Hito clave</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2020</td><td>2019</td><td>.NET Framework 4.7</td><td>—</td></tr>
+          <tr><td>2021</td><td>2020</td><td>.NET Framework 4.8</td><td>Introducción de <strong>ForgeTypeId</strong> (reemplaza UnitType / DisplayUnitType)</td></tr>
+          <tr><td>2022</td><td>2021</td><td>.NET Framework 4.8</td><td>—</td></tr>
+          <tr><td>2023</td><td>2022</td><td>.NET Framework 4.8</td><td>—</td></tr>
+          <tr><td>2024</td><td>2023</td><td>.NET Framework 4.8</td><td>Último framework legacy. <code>ElementId.IntegerValue</code> deprecado → <code>ElementId.Value</code> (long)</td></tr>
+          <tr><td>2025</td><td>2024</td><td><strong>.NET 8</strong></td><td>Salto histórico a .NET moderno. Recompilar todos los add-ins.</td></tr>
+          <tr class="hl"><td><strong>2026</strong></td><td><strong>2 abr 2025</strong></td><td><strong>.NET 8</strong></td><td><strong>25.º aniversario.</strong> Accelerated Graphics (Tech Preview).</td></tr>
+          <tr><td>2027</td><td>7 abr 2026</td><td><strong>.NET 10</strong></td><td>Autodesk Assistant (IA) + MCP Server público. Accelerated Graphics en producción.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">08 / 97</div>
+  </div>
+</section>
+
+<!-- 9: Beneficios .NET 8 -->
+<section data-label="09 Beneficios .NET 8">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">¿Por qué .NET 8 cambia todo?</div>
+    <h1 class="slide-title" style="margin-top:24px;">Beneficios sobre .NET Framework 4.8</h1>
+    <div style="margin-top:60px; display:grid; grid-template-columns: repeat(3, 1fr); gap:24px; flex:1;">
+      <div class="card">
+        <div class="ct">⚡ Rendimiento</div>
+        <p class="cb">JIT moderno, mejor inlining. Hasta <strong>30–40% más rápido</strong> en cargas típicas.</p>
+      </div>
+      <div class="card">
+        <div class="ct">✨ Lenguaje moderno</div>
+        <p class="cb">C# 12: records, pattern matching, nullable reference types, primary constructors, <code>required</code>.</p>
+      </div>
+      <div class="card">
+        <div class="ct">🔒 AssemblyLoadContext</div>
+        <p class="cb">Aislamiento de dependencias. Fin del clásico <strong>"DLL Hell"</strong> entre add-ins.</p>
+      </div>
+      <div class="card">
+        <div class="ct">🛡️ LTS · Long Term Support</div>
+        <p class="cb">.NET 8 con soporte hasta <strong>noviembre 2026</strong>. Parches de seguridad continuos.</p>
+      </div>
+      <div class="card">
+        <div class="ct">⏱️ Async/await mejorado</div>
+        <p class="cb"><code>ValueTask</code>, <code>IAsyncEnumerable</code>, mejor pooling.</p>
+      </div>
+      <div class="card">
+        <div class="ct">🛠️ Tooling cross-platform</div>
+        <p class="cb">Builds en CI/CD Linux, GitHub Actions, contenedores.</p>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">09 / 97</div>
+  </div>
+</section>
+
+<!-- 10: ¿Y Revit 2027? -->
+<section data-label="10 Revit 2027">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Mirando adelante</div>
+    <h1 class="slide-title" style="margin-top:24px;">¿Y Revit 2027?</h1>
+    <div style="margin-top:48px; display:flex; gap:48px; flex:1;">
+      <div style="flex:1;">
+        <div style="font-size:36px; font-weight:600; color:var(--azul-profundo); line-height:1.3;">
+          Lanzado el <span style="color:var(--naranja);">7 de abril de 2026</span>.<br/>
+          Migra a <span style="color:var(--azul-revit);">.NET 10</span>.
+        </div>
+        <ul class="clean" style="margin-top:40px;">
+          <li><strong>Autodesk Assistant</strong> · IA con Model Context Protocol (MCP)</li>
+          <li><strong>MCP Server público</strong> · conecta tu propia IA a Revit</li>
+          <li><strong>Accelerated Graphics</strong> ya en producción</li>
+          <li>Integración nativa con <strong>Forma</strong></li>
+        </ul>
+      </div>
+      <div style="flex:1; background:#FFF4E6; border-left:6px solid var(--naranja); padding:48px; border-radius:12px; align-self:center;">
+        <div style="font-size:24px; color:var(--naranja); font-weight:700; letter-spacing:0.15em; text-transform:uppercase;">Implicación para devs</div>
+        <div style="font-size:32px; line-height:1.4; margin-top:20px; color:var(--gris-900);">
+          Tus add-ins de <strong>2025/2026 (.NET 8)</strong> deben recompilarse a <strong>.NET 10</strong> para correr en Revit 2027.
+        </div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">10 / 97</div>
+  </div>
+</section>
+
+<!-- 11: Curiosidad - dominio Revit.com -->
+<section data-label="11 Curiosidad">
+  <div class="slide-frame curiosity" style="justify-content:center;">
+    <div class="badge" style="margin-bottom:48px;"><div class="bulb">💡</div> Pregunta curiosa</div>
+    <div class="q">
+      ¿Sabías que el dominio <strong>Revit.com</strong> tuvo que ser comprado porque ya lo usaba un fabricante <strong>holandés de ropa de motociclista</strong>?
+    </div>
+    <div style="font-size:32px; color:var(--gris-600); margin-top:48px; max-width:1400px;">
+      Antes de obtenerlo, la compañía usaba <code>gorevit.com</code> y <code>revit.net</code>.
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">11 / 97</div>
+  </div>
+</section>
+
+<!-- 12: Cierre sección 1 -->
+<section data-label="12 Cierre 01">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Cierre de sección 01</div>
+    <h1 class="slide-title" style="margin-top:24px;">¿Qué nos dice esto?</h1>
+    <div style="margin-top:80px; display:grid; grid-template-columns: repeat(3, 1fr); gap:32px; flex:1;">
+      <div class="card" style="background:var(--gris-100); border:none;">
+        <div style="font-size:80px; font-weight:800; color:var(--azul-revit); line-height:1;">A</div>
+        <div class="ct" style="margin-top:24px; font-size:30px;">La API tiene <span style="color:var(--azul-revit);">20+ años</span> de evolución</div>
+        <p class="cb" style="margin-top:12px; font-size:24px;">Es madura, robusta y muy bien documentada.</p>
+      </div>
+      <div class="card" style="background:var(--gris-100); border:none;">
+        <div style="font-size:80px; font-weight:800; color:var(--azul-revit); line-height:1;">B</div>
+        <div class="ct" style="margin-top:24px; font-size:30px;">Hoy Revit es <span style="color:var(--azul-revit);">.NET moderno</span></div>
+        <p class="cb" style="margin-top:12px; font-size:24px;">C# 12, async, performance de 2025.</p>
+      </div>
+      <div class="card" style="background:var(--gris-100); border:none;">
+        <div style="font-size:80px; font-weight:800; color:var(--azul-revit); line-height:1;">C</div>
+        <div class="ct" style="margin-top:24px; font-size:30px;">No te asustes con <span style="color:var(--azul-revit);">código viejo</span></div>
+        <p class="cb" style="margin-top:12px; font-size:24px;">Mucho material online es de versiones legacy. Sabrás traducirlo.</p>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">12 / 97</div>
+  </div>
+</section>
+
+<!-- ============== SECCIÓN 2 — ¿QUÉ ES LA API DE REVIT? ============== -->
+
+<!-- 13: Divisoria sección 02 -->
+<section data-label="13 Sección 02">
+  <div class="slide-frame divider" style="justify-content:center;">
+    <div class="label">Sección 02</div>
+    <div style="display:flex; align-items:flex-end; gap:48px; margin-top:24px;">
+      <div class="num">02</div>
+      <div style="padding-bottom:60px;">
+        <div class="stitle">La puerta secreta<br/>de Revit</div>
+        <div style="font-size:28px; color:rgba(255,255,255,0.7); margin-top:32px;">30 minutos · Qué es una API y cómo se conecta a Revit</div>
+      </div>
+    </div>
+    <div class="footer light">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num light">13 / 97</div>
+  </div>
+</section>
+
+<!-- 14: Definición simple -->
+<section data-label="14 Definición API">
+  <div class="slide-frame" style="justify-content:center;">
+    <div class="eyebrow-mini">Definición simple</div>
+    <div style="font-size:72px; line-height:1.2; font-weight:600; max-width:1600px; margin-top:32px; color:var(--gris-900); letter-spacing:-0.02em;">
+      Una API es una <span style="color:var(--azul-revit);">puerta</span> que el software te abre para que tú le digas <span style="background:#FFF4E6; padding:0 12px;">qué hacer con código</span>, sin tocar la interfaz.
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">14 / 97</div>
+  </div>
+</section>
+
+<!-- 15: Analogía visual -->
+<section data-label="15 Analogía">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Analogía</div>
+    <h1 class="slide-title" style="margin-top:24px;">Sin API vs Con API</h1>
+    <div style="margin-top:60px; display:grid; grid-template-columns: 1fr 1fr; gap:48px; flex:1;">
+      <div style="background:var(--gris-100); border-radius:16px; padding:48px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+        <div style="font-size:120px;">👷</div>
+        <div style="font-size:36px; font-weight:700; margin-top:24px;">Revit sin API</div>
+        <div style="font-size:24px; color:var(--gris-600); margin-top:16px; line-height:1.4;">El operario hace cada acción a mano.<br/>Renombrar 200 vistas = 200 clics.</div>
+      </div>
+      <div style="background:linear-gradient(135deg, #E8F4FB, #B0E0F5); border-radius:16px; padding:48px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+        <div style="font-size:120px;">👷&nbsp;🤖</div>
+        <div style="font-size:36px; font-weight:700; margin-top:24px;">Revit con API</div>
+        <div style="font-size:24px; color:var(--gris-700); margin-top:16px; line-height:1.4;">Operario + asistente robótico que ejecuta órdenes en lote.<br/>200 vistas en 2 segundos.</div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">15 / 97</div>
+  </div>
+</section>
+
+<!-- 16: ¿Qué puedes hacer? -->
+<section data-label="16 Qué puedes hacer">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Capacidades</div>
+    <h1 class="slide-title" style="margin-top:24px;">¿Qué puedes hacer con la API?</h1>
+    <div style="margin-top:60px; display:grid; grid-template-columns: repeat(2, 1fr); gap:24px; flex:1;">
+      <div class="cap"><span class="ico">🧱</span><div><strong>Crear, leer, modificar, borrar</strong> elementos: muros, pisos, vigas, MEP.</div></div>
+      <div class="cap"><span class="ico">📋</span><div>Leer y escribir <strong>parámetros masivamente</strong>.</div></div>
+      <div class="cap"><span class="ico">📐</span><div>Generar <strong>planos automáticamente</strong>.</div></div>
+      <div class="cap"><span class="ico">📊</span><div>Exportar datos a <strong>Excel, JSON, SQL</strong>.</div></div>
+      <div class="cap"><span class="ico">🌐</span><div>Conectar con APIs externas: <strong>clima, costos, BIM 360</strong>.</div></div>
+      <div class="cap"><span class="ico">🎛️</span><div>Crear <strong>botones y herramientas</strong> propias en el Ribbon.</div></div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">16 / 97</div>
+  </div>
+  <style>
+    .cap { background:#fff; border:1px solid #E5E5EA; border-radius:12px; padding:24px 28px; display:flex; gap:24px; align-items:center; font-size:26px; line-height:1.35; color:var(--gris-800); }
+    .cap .ico { font-size:48px; flex-shrink:0; }
+  </style>
+</section>
+
+<!-- 17: ¿Qué NO puedes hacer? -->
+<section data-label="17 Qué NO puedes hacer">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Límites · Importante para no frustrarse</div>
+    <h1 class="slide-title" style="margin-top:24px;">¿Qué <span style="color:#D02525;">NO</span> puedes hacer?</h1>
+    <div style="margin-top:60px; display:grid; grid-template-columns: repeat(2, 1fr); gap:24px; flex:1;">
+      <div class="lim"><span class="ico">❌</span><div><strong>Modificar la UI base</strong> de Revit (más allá de tu propio Ribbon).</div></div>
+      <div class="lim"><span class="ico">❌</span><div>Acceder a <strong>funciones internas</strong> no expuestas.</div></div>
+      <div class="lim"><span class="ico">❌</span><div>Trabajar en <strong>multi-thread libre</strong>. La API es <strong>single-threaded</strong>.</div></div>
+      <div class="lim"><span class="ico">❌</span><div>Cambiar el <strong>motor gráfico</strong> de Revit.</div></div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">17 / 97</div>
+  </div>
+  <style>
+    .lim { background:#FFF5F5; border:1px solid #FFD9D9; border-radius:12px; padding:28px 32px; display:flex; gap:24px; align-items:center; font-size:28px; line-height:1.35; color:var(--gris-800); }
+    .lim .ico { font-size:40px; flex-shrink:0; }
+  </style>
+</section>
+
+<!-- 18: Diagrama jerarquía -->
+<section data-label="18 Jerarquía">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Modelo de objetos</div>
+    <h1 class="slide-title" style="margin-top:24px;">La jerarquía de Revit</h1>
+    <div style="margin-top:80px; flex:1; display:flex; align-items:center; justify-content:center;">
+      <svg viewBox="0 0 1600 500" style="width:100%; max-width:1600px;">
+        <defs>
+          <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="#0696D7"/>
+          </marker>
+        </defs>
+        <g font-family="Inter" font-weight="600">
+          <g><rect x="40" y="180" width="240" height="140" rx="12" fill="#1E3A5F"/><text x="160" y="240" text-anchor="middle" fill="white" font-size="28">Application</text><text x="160" y="280" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="18">la sesión Revit</text></g>
+          <line x1="290" y1="250" x2="350" y2="250" stroke="#0696D7" stroke-width="3" marker-end="url(#arr)"/>
+          <g><rect x="360" y="180" width="240" height="140" rx="12" fill="#0696D7"/><text x="480" y="240" text-anchor="middle" fill="white" font-size="28">Document</text><text x="480" y="280" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="18">el archivo .rvt</text></g>
+          <line x1="610" y1="250" x2="670" y2="250" stroke="#0696D7" stroke-width="3" marker-end="url(#arr)"/>
+          <g><rect x="680" y="180" width="240" height="140" rx="12" fill="#FF8200"/><text x="800" y="240" text-anchor="middle" fill="white" font-size="28">Element</text><text x="800" y="280" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="18">muro, viga, vista...</text></g>
+          <line x1="930" y1="250" x2="990" y2="250" stroke="#0696D7" stroke-width="3" marker-end="url(#arr)"/>
+          <g><rect x="1000" y="180" width="240" height="140" rx="12" fill="#00C896"/><text x="1120" y="240" text-anchor="middle" fill="white" font-size="28">Parameter</text><text x="1120" y="280" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="18">altura, material...</text></g>
+          <line x1="1250" y1="250" x2="1310" y2="250" stroke="#0696D7" stroke-width="3" marker-end="url(#arr)"/>
+          <g><rect x="1320" y="180" width="240" height="140" rx="12" fill="#2C2C2C"/><text x="1440" y="240" text-anchor="middle" fill="white" font-size="28">Value</text><text x="1440" y="280" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="18">3.20 m</text></g>
+          <text x="800" y="80" text-anchor="middle" font-size="24" fill="#4A4A4A" font-weight="500">Casi todo en Revit es un Element.</text>
+        </g>
+      </svg>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">18 / 97</div>
+  </div>
+</section>
+
+<!-- 19: Diagrama conexión add-in -->
+<section data-label="19 Cómo conecta">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Flujo de carga</div>
+    <h1 class="slide-title" style="margin-top:24px;">Cómo se conecta un add-in a Revit</h1>
+    <div style="margin-top:60px; flex:1; display:flex; align-items:center; justify-content:center;">
+      <svg viewBox="0 0 1700 500" style="width:100%;">
+        <defs>
+          <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="#1E3A5F"/>
+          </marker>
+        </defs>
+        <g font-family="Inter">
+          <g><rect x="40" y="180" width="220" height="140" rx="12" fill="#1E3A5F"/><text x="150" y="240" text-anchor="middle" fill="white" font-size="32" font-weight="700">Revit.exe</text><text x="150" y="280" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="18">arranca</text></g>
+          <line x1="270" y1="250" x2="340" y2="250" stroke="#1E3A5F" stroke-width="3" marker-end="url(#arr2)"/>
+          <g><rect x="350" y="180" width="240" height="140" rx="12" fill="white" stroke="#0696D7" stroke-width="3"/><text x="470" y="230" text-anchor="middle" fill="#1A1A1A" font-size="22" font-weight="600">busca archivos</text><text x="470" y="270" text-anchor="middle" fill="#0696D7" font-size="22" font-weight="700" font-family="JetBrains Mono">.addin</text></g>
+          <line x1="600" y1="250" x2="670" y2="250" stroke="#1E3A5F" stroke-width="3" marker-end="url(#arr2)"/>
+          <g><rect x="680" y="160" width="380" height="180" rx="12" fill="white" stroke="#FF8200" stroke-width="3"/><text x="870" y="200" text-anchor="middle" fill="#FF8200" font-size="20" font-weight="700">EN</text><text x="870" y="245" text-anchor="middle" fill="#1A1A1A" font-size="20" font-weight="600" font-family="JetBrains Mono">%APPDATA%\Autodesk\</text><text x="870" y="280" text-anchor="middle" fill="#1A1A1A" font-size="20" font-weight="600" font-family="JetBrains Mono">Revit\Addins\2026\</text><text x="870" y="315" text-anchor="middle" fill="#666" font-size="16">(carpeta del usuario)</text></g>
+          <line x1="1070" y1="250" x2="1140" y2="250" stroke="#1E3A5F" stroke-width="3" marker-end="url(#arr2)"/>
+          <g><rect x="1150" y="180" width="240" height="140" rx="12" fill="#0696D7"/><text x="1270" y="230" text-anchor="middle" fill="white" font-size="22" font-weight="600">instancia</text><text x="1270" y="270" text-anchor="middle" fill="white" font-size="22" font-weight="700">tu clase</text></g>
+          <line x1="1400" y1="250" x2="1470" y2="250" stroke="#1E3A5F" stroke-width="3" marker-end="url(#arr2)"/>
+          <g><rect x="1480" y="180" width="180" height="140" rx="12" fill="#00C896"/><text x="1570" y="240" text-anchor="middle" fill="white" font-size="22" font-weight="700">Ribbon</text><text x="1570" y="280" text-anchor="middle" fill="white" font-size="20">listo ✓</text></g>
+        </g>
+      </svg>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">19 / 97</div>
+  </div>
+</section>
+
+<!-- 20: Dos ensamblados -->
+<section data-label="20 Ensamblados">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Los dos DLLs que vas a usar siempre</div>
+    <h1 class="slide-title" style="margin-top:24px;">Ensamblados clave</h1>
+    <div style="margin-top:60px; display:grid; grid-template-columns: 1fr 1fr; gap:32px; flex:1;">
+      <div class="card dark" style="border-top:6px solid var(--azul-revit);">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:30px; color:#4EC9B0; font-weight:600;">RevitAPI.dll</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:22px; color:rgba(255,255,255,0.6); margin-top:12px;">namespace Autodesk.Revit.DB</div>
+        <div style="height:1px; background:rgba(255,255,255,0.15); margin:32px 0;"></div>
+        <div style="font-size:24px; line-height:1.5; color:rgba(255,255,255,0.85);">
+          El <strong style="color:#fff;">modelo</strong>: geometría, parámetros, transacciones, elementos, vistas, niveles.
+        </div>
+      </div>
+      <div class="card dark" style="border-top:6px solid var(--naranja);">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:30px; color:#DCDCAA; font-weight:600;">RevitAPIUI.dll</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:22px; color:rgba(255,255,255,0.6); margin-top:12px;">namespace Autodesk.Revit.UI</div>
+        <div style="height:1px; background:rgba(255,255,255,0.15); margin:32px 0;"></div>
+        <div style="font-size:24px; line-height:1.5; color:rgba(255,255,255,0.85);">
+          La <strong style="color:#fff;">interfaz</strong>: comandos externos, ribbon, diálogos, selección de usuario.
+        </div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">20 / 97</div>
+  </div>
+</section>
+
+<!-- 21: Transacciones -->
+<section data-label="21 Transacciones">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Concepto crítico</div>
+    <h1 class="slide-title" style="margin-top:24px;">Transacciones</h1>
+    <div style="margin-top:60px; display:flex; gap:48px; flex:1; align-items:center;">
+      <div style="flex:1;">
+        <div style="font-size:36px; line-height:1.4; color:var(--gris-900); font-weight:500;">
+          Cualquier cambio al modelo debe ir dentro de un <code style="background:var(--azul-claro); color:var(--azul-revit); padding:4px 12px; border-radius:6px; font-family:'JetBrains Mono',monospace;">Transaction</code>.
+        </div>
+        <div style="font-size:32px; color:#D02525; margin-top:32px; font-weight:600;">
+          Sin transacción → excepción inmediata.
+        </div>
+        <div style="font-size:24px; color:var(--gris-600); margin-top:32px; line-height:1.4;">
+          Esto te da <strong>undo</strong> automático en Revit y permite agrupar varios cambios en una sola operación.
+        </div>
+      </div>
+      <div style="flex:1;">
+        <pre class="code"><span class="tok-key">using</span> (<span class="tok-type">Transaction</span> tx = <span class="tok-key">new</span> <span class="tok-type">Transaction</span>(doc, <span class="tok-str">"Crear muro"</span>))
+{
+    tx.Start();
+
+    <span class="tok-com">// modificar el modelo aquí</span>
+    Wall.Create(doc, curve, levelId, <span class="tok-key">false</span>);
+
+    tx.Commit();
+}</pre>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">21 / 97</div>
+  </div>
+</section>
+
+<!-- 22: IExternalCommand vs IExternalApplication -->
+<section data-label="22 Command vs App">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Concepto crítico</div>
+    <h1 class="slide-title" style="margin-top:24px;">Comando vs Aplicación</h1>
+    <div style="margin-top:60px; display:grid; grid-template-columns: 1fr 1fr; gap:32px; flex:1;">
+      <div class="card" style="border-top:6px solid var(--azul-revit);">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:30px; color:var(--azul-revit); font-weight:600;">IExternalCommand</div>
+        <div style="height:1px; background:#E5E5EA; margin:24px 0;"></div>
+        <ul class="clean">
+          <li>Un único <strong>botón / comando</strong></li>
+          <li>Se ejecuta cuando el usuario <strong>hace clic</strong></li>
+          <li>Aparece en <code>Add-Ins → External Tools</code></li>
+          <li>Lo que vamos a hacer <strong>HOY</strong></li>
+        </ul>
+      </div>
+      <div class="card" style="border-top:6px solid var(--naranja);">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:30px; color:var(--naranja); font-weight:600;">IExternalApplication</div>
+        <div style="height:1px; background:#E5E5EA; margin:24px 0;"></div>
+        <ul class="clean">
+          <li>Toda una <strong>aplicación</strong></li>
+          <li>Carga al <strong>arrancar Revit</strong></li>
+          <li>Crea tu propio <strong>Ribbon</strong>, carga config</li>
+          <li>Lo veremos la <strong>próxima clase</strong></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">22 / 97</div>
+  </div>
+</section>
+
+<!-- 23: Curiosidad - pies -->
+<section data-label="23 Curiosidad pies">
+  <div class="slide-frame curiosity" style="justify-content:center;">
+    <div class="badge" style="margin-bottom:48px;"><div class="bulb">💡</div> Pregunta curiosa</div>
+    <div class="q">
+      ¿Sabías que <strong>Revit guarda TODO internamente en pies (feet)</strong>, sin importar las unidades del proyecto?
+    </div>
+    <div style="font-size:30px; color:var(--gris-700); margin-top:48px; max-width:1500px; line-height:1.5;">
+      Cuando lees un parámetro de longitud, te llega en pies. Tienes que convertir tú con<br/>
+      <code style="background:#fff; padding:6px 14px; border-radius:6px; font-family:'JetBrains Mono',monospace; font-size:26px; margin-top:16px; display:inline-block; color:var(--azul-revit);">UnitUtils.ConvertFromInternalUnits(valor, UnitTypeId.Meters)</code>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">23 / 97</div>
+  </div>
+</section>
+
+<!-- 24: Curiosidad - single thread -->
+<section data-label="24 Curiosidad thread">
+  <div class="slide-frame curiosity" style="justify-content:center;">
+    <div class="badge" style="margin-bottom:48px;"><div class="bulb">💡</div> Pregunta curiosa</div>
+    <div class="q">
+      ¿Sabías que <strong>la API de Revit es single-thread</strong>?
+    </div>
+    <div style="font-size:30px; color:var(--gris-700); margin-top:48px; max-width:1500px; line-height:1.5;">
+      Solo el hilo principal puede tocar el modelo. Si lanzas un <code style="background:#fff; padding:4px 10px; border-radius:6px; font-family:'JetBrains Mono',monospace;">Task.Run</code> que modifique el documento, <strong style="color:#D02525;">Revit truena</strong>.
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">24 / 97</div>
+  </div>
+</section>
+
+<!-- ============== SECCIÓN 3 — C# vs VB.NET ============== -->
+
+<!-- 25: Divisoria sección 03 -->
+<section data-label="25 Sección 03">
+  <div class="slide-frame divider" style="justify-content:center;">
+    <div class="label">Sección 03</div>
+    <div style="display:flex; align-items:flex-end; gap:48px; margin-top:24px;">
+      <div class="num">03</div>
+      <div style="padding-bottom:60px;">
+        <div class="stitle">¿C# o VB.NET?</div>
+        <div style="font-size:28px; color:rgba(255,255,255,0.7); margin-top:32px;">20 minutos · Elección de lenguaje</div>
+      </div>
+    </div>
+    <div class="footer light">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num light">25 / 97</div>
+  </div>
+</section>
+
+<!-- 26: Mismo IL -->
+<section data-label="26 Mismo IL">
+  <div class="slide-frame" style="justify-content:center;">
+    <div class="eyebrow-mini">Punto de partida</div>
+    <div style="font-size:64px; line-height:1.25; font-weight:600; max-width:1600px; margin-top:32px; color:var(--gris-900); letter-spacing:-0.02em;">
+      Ambos compilan al <span style="color:var(--azul-revit);">mismo IL</span> y ambos son <span style="color:var(--azul-revit);">válidos</span> para la API de Revit.
+    </div>
+    <div style="font-size:48px; color:var(--gris-600); margin-top:48px; font-style:italic;">Pero…</div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">26 / 97</div>
+  </div>
+</section>
+
+<!-- 27: C# es estándar de facto -->
+<section data-label="27 C# estándar">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Realidad de la comunidad</div>
+    <h1 class="slide-title" style="margin-top:24px;">C# es el <span style="color:var(--azul-revit);">estándar de facto</span></h1>
+    <div style="margin-top:80px; display:grid; grid-template-columns: repeat(4, 1fr); gap:24px; flex:1;">
+      <div class="stat"><div class="big">95%+</div><div class="lbl">de la documentación oficial</div></div>
+      <div class="stat"><div class="big">SDK</div><div class="lbl">Samples del SDK<br/>en C#</div></div>
+      <div class="stat"><div class="big">Blogs</div><div class="lbl">The Building Coder & co. en C#</div></div>
+      <div class="stat"><div class="big">SO</div><div class="lbl">Stack Overflow<br/>respuestas en C#</div></div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">27 / 97</div>
+  </div>
+  <style>
+    .stat { background:var(--gris-100); border-radius:16px; padding:48px 32px; text-align:center; display:flex; flex-direction:column; justify-content:center; }
+    .stat .big { font-size:88px; font-weight:800; color:var(--azul-revit); line-height:1; letter-spacing:-0.04em; }
+    .stat .lbl { font-size:24px; color:var(--gris-700); margin-top:24px; line-height:1.3; }
+  </style>
+</section>
+
+<!-- 28: Comparativa lado a lado -->
+<section data-label="28 C# vs VB">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">La misma clase, dos lenguajes</div>
+    <h1 class="slide-title" style="margin-top:24px;">HelloRevit en C# vs VB.NET</h1>
+    <div style="margin-top:48px; display:grid; grid-template-columns: 1fr 1fr; gap:32px; flex:1;">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:24px; color:var(--azul-revit); font-weight:700; margin-bottom:16px;">C# · recomendado</div>
+        <pre class="code sm">[<span class="tok-attr">Transaction</span>(<span class="tok-type">TransactionMode</span>.ReadOnly)]
+<span class="tok-key">public class</span> <span class="tok-type">Command</span> : <span class="tok-type">IExternalCommand</span>
+{
+    <span class="tok-key">public</span> <span class="tok-type">Result</span> Execute(
+        <span class="tok-type">ExternalCommandData</span> data,
+        <span class="tok-key">ref string</span> message,
+        <span class="tok-type">ElementSet</span> elements)
+    {
+        <span class="tok-type">TaskDialog</span>.Show(<span class="tok-str">"Hola"</span>, <span class="tok-str">"Revit"</span>);
+        <span class="tok-key">return</span> <span class="tok-type">Result</span>.Succeeded;
+    }
+}</pre>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:24px; color:var(--gris-600); font-weight:700; margin-bottom:16px;">VB.NET · más verboso</div>
+        <pre class="code sm">&lt;<span class="tok-attr">Transaction</span>(<span class="tok-type">TransactionMode</span>.ReadOnly)&gt;
+<span class="tok-key">Public Class</span> Command
+    <span class="tok-key">Implements</span> <span class="tok-type">IExternalCommand</span>
+
+    <span class="tok-key">Public Function</span> Execute(
+        data <span class="tok-key">As</span> <span class="tok-type">ExternalCommandData</span>,
+        <span class="tok-key">ByRef</span> message <span class="tok-key">As String</span>,
+        elements <span class="tok-key">As</span> <span class="tok-type">ElementSet</span>) _
+        <span class="tok-key">As</span> <span class="tok-type">Result</span> <span class="tok-key">Implements</span> _
+        <span class="tok-type">IExternalCommand</span>.Execute
+
+        <span class="tok-type">TaskDialog</span>.Show(<span class="tok-str">"Hola"</span>, <span class="tok-str">"Revit"</span>)
+        <span class="tok-key">Return</span> <span class="tok-type">Result</span>.Succeeded
+    <span class="tok-key">End Function</span>
+<span class="tok-key">End Class</span></pre>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">28 / 97</div>
+  </div>
+</section>
+
+<!-- 29: Por qué C# -->
+<section data-label="29 Por qué C#">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">En este curso usamos C#</div>
+    <h1 class="slide-title" style="margin-top:24px;">Por qué <span style="color:var(--azul-revit);">C#</span></h1>
+    <div style="margin-top:60px; display:grid; grid-template-columns: repeat(2, 1fr); gap:24px; flex:1;">
+      <div class="card"><div class="ct">🌎 Comunidad enorme</div><p class="cb">Millones de devs, miles de tutoriales, respuesta rápida en foros.</p></div>
+      <div class="card"><div class="ct">🛠️ Tooling superior</div><p class="cb">Visual Studio, Rider, ReSharper, Copilot — todos en C# de primera clase.</p></div>
+      <div class="card"><div class="ct">📚 Sintaxis familiar</div><p class="cb">Si ya viste JavaScript, Java o TypeScript, C# se siente como casa.</p></div>
+      <div class="card"><div class="ct">🚀 Futuro asegurado</div><p class="cb">Microsoft sigue invirtiendo fuerte. C# 12, 13, 14… seguirá evolucionando.</p></div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">29 / 97</div>
+  </div>
+</section>
+
+<!-- 30: Cuándo VB sí -->
+<section data-label="30 Cuándo VB">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Honestidad técnica</div>
+    <h1 class="slide-title" style="margin-top:24px;">¿Cuándo VB.NET puede tener sentido?</h1>
+    <div style="margin-top:60px; display:flex; gap:48px; flex:1; align-items:center;">
+      <div style="flex:1;">
+        <ul class="clean dots">
+          <li>Equipos con <strong>legado de Office VBA</strong> que ya leen ese estilo.</li>
+          <li><strong>Preferencia personal</strong> del autor.</li>
+          <li>Mantenimiento de un add-in <strong>antiguo</strong> escrito en VB.</li>
+        </ul>
+      </div>
+      <div style="flex:1; background:#FFF4E6; border-radius:16px; padding:48px; border-left:6px solid var(--naranja);">
+        <div style="font-size:36px; font-weight:700; color:var(--naranja);">No es nuestro caso.</div>
+        <div style="font-size:28px; color:var(--gris-800); margin-top:16px; line-height:1.4;">Empezamos limpio, en C#.</div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">30 / 97</div>
+  </div>
+</section>
+
+<!-- 31: Curiosidad - macro editor -->
+<section data-label="31 Curiosidad macros">
+  <div class="slide-frame curiosity" style="justify-content:center;">
+    <div class="badge" style="margin-bottom:48px;"><div class="bulb">💡</div> Pregunta curiosa</div>
+    <div class="q">
+      ¿Sabías que el <strong>macro editor interno de Revit</strong> en versiones antiguas soportaba <strong>C#, VB.NET, Python (IronPython) y Ruby</strong>?
+    </div>
+    <div style="font-size:30px; color:var(--gris-700); margin-top:48px; max-width:1500px;">
+      Desde <strong>Revit 2025</strong> el macro editor solo soporta <strong style="color:var(--azul-revit);">C#</strong>.
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">31 / 97</div>
+  </div>
+</section>
+
+<!-- 32: Conclusión -->
+<section data-label="32 Conclusión 03">
+  <div class="slide-frame" style="justify-content:center; background:var(--azul-profundo); color:#fff;">
+    <div style="font-size:24px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.6); font-weight:500;">Conclusión</div>
+    <div style="font-size:96px; line-height:1.15; font-weight:800; margin-top:32px; max-width:1700px; letter-spacing:-0.03em;">
+      En este curso usamos<br/>
+      <span style="color:var(--azul-revit);">C# 12</span> sobre <span style="color:var(--naranja);">.NET 8</span>.
+    </div>
+    <div class="footer light">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num light">32 / 97</div>
+  </div>
+</section>
+
+<!-- ============== SECCIÓN 4 — VISUAL STUDIO COMMUNITY ============== -->
+
+<!-- 33: Divisoria sección 04 -->
+<section data-label="33 Sección 04">
+  <div class="slide-frame divider" style="justify-content:center;">
+    <div class="label">Sección 04</div>
+    <div style="display:flex; align-items:flex-end; gap:48px; margin-top:24px;">
+      <div class="num">04</div>
+      <div style="padding-bottom:60px;">
+        <div class="stitle">Tu taller<br/>de trabajo</div>
+        <div style="font-size:28px; color:rgba(255,255,255,0.7); margin-top:32px;">20 minutos · Visual Studio 2022 Community</div>
+      </div>
+    </div>
+    <div class="footer light">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num light">33 / 97</div>
+  </div>
+</section>
+
+<!-- 34: ¿Qué es VS? -->
+<section data-label="34 Qué es VS">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">El IDE</div>
+    <h1 class="slide-title" style="margin-top:24px;">¿Qué es Visual Studio?</h1>
+    <div style="margin-top:60px; display:flex; gap:48px; flex:1; align-items:center;">
+      <div style="flex:1;">
+        <div style="font-size:40px; line-height:1.35; color:var(--gris-900); font-weight:500;">
+          IDE gratuito de <strong style="color:var(--azul-revit);">Microsoft</strong> para desarrollar en .NET.
+        </div>
+        <div style="font-size:30px; color:var(--gris-700); margin-top:32px; line-height:1.4;">
+          La edición <strong>Community</strong> es gratis para uso individual, educación y proyectos open source.
+        </div>
+      </div>
+      <div style="flex:1; background:var(--gris-100); border-radius:16px; padding:48px;">
+        <div style="font-size:22px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gris-600); font-weight:600;">Descarga oficial</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:26px; color:var(--azul-revit); margin-top:20px; word-break:break-all;">
+          visualstudio.microsoft.com/<br/>es/vs/community/
+        </div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">34 / 97</div>
+  </div>
+</section>
+
+<!-- 35: URL descarga (slide dedicada) -->
+<section data-label="35 Descarga URL">
+  <div class="slide-frame" style="justify-content:center; background:var(--gris-100);">
+    <div class="eyebrow-mini">Paso 0 · Descarga</div>
+    <div style="font-size:36px; color:var(--gris-700); margin-top:24px;">Abre en tu navegador:</div>
+    <div style="font-family:'JetBrains Mono',monospace; font-size:64px; color:var(--azul-revit); margin-top:32px; font-weight:600; letter-spacing:-0.02em;">
+      visualstudio.microsoft.com/es/vs/community/
+    </div>
+    <div style="font-size:28px; color:var(--gris-600); margin-top:48px;">Descarga el instalador. Pesa unos pocos MB; la descarga real ocurre dentro del Installer.</div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">35 / 97</div>
+  </div>
+</section>
+
+<!-- 36: Componentes a marcar -->
+<section data-label="36 Componentes">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Visual Studio Installer</div>
+    <h1 class="slide-title" style="margin-top:24px;">Componentes a marcar</h1>
+    <div style="margin-top:48px; display:grid; grid-template-columns: 1.2fr 1fr; gap:48px; flex:1;">
+      <div>
+        <div class="check-row"><span class="chk">✓</span><div><strong>Desarrollo de escritorio de .NET</strong><br/><span class="sub">Workload principal</span></div></div>
+        <div class="check-row"><span class="chk">✓</span><div><strong>.NET 8 SDK</strong><br/><span class="sub">Incluido en el workload</span></div></div>
+        <div class="check-row"><span class="chk">✓</span><div><strong>.NET desktop development</strong><br/><span class="sub">Habilita WPF y WinForms</span></div></div>
+        <div class="check-row opt"><span class="chk">○</span><div><strong>GitHub Copilot</strong> · opcional<br/><span class="sub">Productividad con IA</span></div></div>
+      </div>
+      <div style="background:var(--gris-100); border-radius:16px; padding:32px; align-self:center;">
+        <div style="font-size:22px; letter-spacing:0.15em; text-transform:uppercase; color:var(--gris-600); font-weight:600;">SDK directo</div>
+        <div style="font-size:24px; color:var(--gris-800); margin-top:20px; line-height:1.4;">Si prefieres descargar .NET 8 aparte:</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:20px; color:var(--azul-revit); margin-top:16px; word-break:break-all;">dotnet.microsoft.com/<br/>es-es/download/dotnet/8.0</div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">36 / 97</div>
+  </div>
+  <style>
+    .check-row { display:flex; gap:24px; align-items:flex-start; padding:18px 0; border-bottom:1px solid #E5E5EA; font-size:26px; line-height:1.3; }
+    .check-row .chk { width:44px; height:44px; flex-shrink:0; border-radius:8px; background:var(--menta); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:24px; }
+    .check-row.opt .chk { background:var(--gris-300); color:var(--gris-600); }
+    .check-row .sub { color:var(--gris-600); font-size:20px; }
+  </style>
+</section>
+
+<!-- 37: Verificación post-instalación -->
+<section data-label="37 Verificación">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Confirmando que todo está bien</div>
+    <h1 class="slide-title" style="margin-top:24px;">Verificación post-instalación</h1>
+    <div style="margin-top:60px; flex:1; display:flex; align-items:center; justify-content:center;">
+      <div style="background:var(--gris-100); padding:64px 80px; border-radius:20px; max-width:1500px;">
+        <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap; font-size:36px; line-height:1.6;">
+          <span style="background:var(--azul-revit); color:#fff; padding:4px 16px; border-radius:8px; font-weight:600;">Abrir VS</span>
+          <span style="color:var(--gris-500);">→</span>
+          <span><code style="background:#fff; padding:4px 12px; border-radius:6px; font-family:'JetBrains Mono',monospace;">File → New Project</code></span>
+          <span style="color:var(--gris-500);">→</span>
+          <span>buscar <strong>"Class Library"</strong></span>
+        </div>
+        <div style="margin-top:48px; font-size:32px; color:var(--menta); font-weight:600; display:flex; align-items:center; gap:16px;">
+          <span style="font-size:48px;">✅</span> Si aparece la opción, todo está bien.
+        </div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">37 / 97</div>
+  </div>
+</section>
+
+<!-- 38: Configuración recomendada -->
+<section data-label="38 Configuración">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Calidad de vida</div>
+    <h1 class="slide-title" style="margin-top:24px;">Configuración recomendada</h1>
+    <div style="margin-top:60px; display:grid; grid-template-columns: repeat(3, 1fr); gap:32px; flex:1;">
+      <div class="card">
+        <div style="font-size:48px;">🌙</div>
+        <div class="ct" style="margin-top:16px;">Tema oscuro</div>
+        <p class="cb"><code>Tools → Options → Environment → General → Color theme: Dark</code></p>
+      </div>
+      <div class="card">
+        <div style="font-size:48px;">🔢</div>
+        <div class="ct" style="margin-top:16px;">Números de línea</div>
+        <p class="cb"><code>Text Editor → All Languages → Line numbers ✓</code></p>
+      </div>
+      <div class="card">
+        <div style="font-size:48px;">📂</div>
+        <div class="ct" style="margin-top:16px;">Solution Explorer siempre visible</div>
+        <p class="cb"><code>View → Solution Explorer</code> y anclarlo a la derecha.</p>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">38 / 97</div>
+  </div>
+</section>
+
+<!-- 39: Extensiones útiles -->
+<section data-label="39 Extensiones">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Opcional · Productividad</div>
+    <h1 class="slide-title" style="margin-top:24px;">Extensiones útiles</h1>
+    <div style="margin-top:60px; display:grid; grid-template-columns: repeat(2, 1fr); gap:24px; flex:1;">
+      <div class="card"><div class="ct">ReSharper <span class="badge-pill pill-orange" style="margin-left:12px;">de pago</span></div><p class="cb">Refactors potentes, navegación, análisis de código profundo.</p></div>
+      <div class="card"><div class="ct">CodeMaid <span class="badge-pill pill-green" style="margin-left:12px;">free</span></div><p class="cb">Limpia y formatea código automáticamente al guardar.</p></div>
+      <div class="card"><div class="ct">GitHub Copilot <span class="badge-pill pill-blue" style="margin-left:12px;">free para estudiantes</span></div><p class="cb">Autocompletado con IA. Útil al aprender una API nueva.</p></div>
+      <div class="card"><div class="ct">Revit Templates <span class="badge-pill pill-green" style="margin-left:12px;">free</span></div><p class="cb">Plantillas de proyecto pre-configuradas para add-ins de Revit.</p></div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">39 / 97</div>
+  </div>
+</section>
+
+<!-- 40: SDK de Revit -->
+<section data-label="40 SDK Revit">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">El otro ingrediente</div>
+    <h1 class="slide-title" style="margin-top:24px;">SDK de Revit 2026</h1>
+    <div style="margin-top:48px; display:grid; grid-template-columns: 1fr 1fr; gap:32px; flex:1;">
+      <div class="card">
+        <div style="font-size:22px; color:var(--gris-600); letter-spacing:0.15em; text-transform:uppercase; font-weight:600;">Opción A · Tradicional</div>
+        <div class="ct" style="margin-top:16px;">Autodesk Developer Network</div>
+        <p class="cb">Descarga el <strong>Revit 2026 SDK</strong> oficial desde el portal de developers de Autodesk. Incluye samples y documentación CHM.</p>
+      </div>
+      <div class="card" style="border:2px solid var(--azul-revit);">
+        <div style="font-size:22px; color:var(--azul-revit); letter-spacing:0.15em; text-transform:uppercase; font-weight:600;">Opción B · Recomendada hoy</div>
+        <div class="ct" style="margin-top:16px;">NuGet</div>
+        <p class="cb">Paquetes: <code>Autodesk.Revit.SDK 2026.0.0.x</code> · <code>Nice3point.Revit.Build.Tasks</code> · <code>Revit_All_Main_Versions_API_x64</code>.</p>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">40 / 97</div>
+  </div>
+</section>
+
+<!-- 41: Copy Local = False -->
+<section data-label="41 Copy Local">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Recomendación crítica</div>
+    <h1 class="slide-title" style="margin-top:24px;">No copies a mano <code style="font-family:'JetBrains Mono',monospace; color:var(--azul-revit);">RevitAPI.dll</code></h1>
+    <div style="margin-top:60px; display:flex; gap:48px; flex:1; align-items:center;">
+      <div style="flex:1;">
+        <div style="font-size:32px; line-height:1.4;">
+          Mejor <strong style="color:var(--azul-revit);">referenciar directamente</strong> desde la instalación de Revit:
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:24px; background:var(--gris-100); padding:20px 24px; border-radius:8px; margin-top:24px; color:var(--gris-900);">
+          C:\Program Files\Autodesk\Revit 2026\
+        </div>
+        <div style="font-size:28px; color:var(--naranja); margin-top:32px; font-weight:700; line-height:1.4;">
+          🔑 Y poner <code style="background:#FFF4E6; padding:4px 12px; border-radius:6px;">Copy Local = False</code>
+        </div>
+        <div style="font-size:24px; color:var(--gris-600); margin-top:16px; line-height:1.4;">
+          Para que las DLLs no se dupliquen en tu output.
+        </div>
+      </div>
+      <div style="flex:1; background:#FFF5F5; border-radius:16px; padding:48px; border-left:6px solid #D02525;">
+        <div style="font-size:24px; color:#D02525; font-weight:700; letter-spacing:0.15em; text-transform:uppercase;">¿Por qué importa?</div>
+        <div style="font-size:26px; line-height:1.4; margin-top:20px; color:var(--gris-900);">
+          Si copias <code>RevitAPI.dll</code> a tu output, Revit cargará tu copia <strong>en lugar de la suya</strong> y tronará al primer uso.
+        </div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">41 / 97</div>
+  </div>
+</section>
+
+<!-- 42: Curiosidad líneas de código -->
+<section data-label="42 Curiosidad líneas">
+  <div class="slide-frame curiosity" style="justify-content:center;">
+    <div class="badge" style="margin-bottom:48px;"><div class="bulb">💡</div> Pregunta curiosa</div>
+    <div class="q">
+      ¿Cuántas líneas de código tiene Revit aproximadamente?
+    </div>
+    <div style="font-size:30px; color:var(--gris-700); margin-top:48px; max-width:1500px; line-height:1.5;">
+      Estimaciones públicas hablan de <strong>varios millones de líneas</strong> en C++ acumuladas desde 1997.
+    </div>
+    <div style="font-size:32px; color:var(--menta); margin-top:32px; font-weight:600;">
+      ¡Llevas 28 años de ingeniería de software encima cada vez que abres Revit!
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">42 / 97</div>
+  </div>
+</section>
+
+<!-- ============== SECCIÓN 5 — ANATOMÍA DE UN ADD-IN ============== -->
+
+<!-- 43: Divisoria sección 05 -->
+<section data-label="43 Sección 05">
+  <div class="slide-frame divider" style="justify-content:center;">
+    <div class="label">Sección 05</div>
+    <div style="display:flex; align-items:flex-end; gap:48px; margin-top:24px;">
+      <div class="num">05</div>
+      <div style="padding-bottom:60px;">
+        <div class="stitle">Anatomía<br/>de un Add-in</div>
+        <div style="font-size:28px; color:rgba(255,255,255,0.7); margin-top:32px;">30 minutos · Cómo está hecho por dentro</div>
+      </div>
+    </div>
+    <div class="footer light">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num light">43 / 97</div>
+  </div>
+</section>
+
+<!-- 44: Tres archivos -->
+<section data-label="44 Tres archivos">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Lo más simple posible</div>
+    <h1 class="slide-title" style="margin-top:24px;">Un add-in = <span style="color:var(--azul-revit);">3 cosas</span></h1>
+    <div style="margin-top:80px; display:grid; grid-template-columns: repeat(3, 1fr); gap:32px; flex:1;">
+      <div class="card" style="text-align:center; border-top:6px solid var(--azul-revit);">
+        <div style="font-size:80px;">📦</div>
+        <div class="ct" style="margin-top:16px; font-size:32px;">Tu DLL</div>
+        <p class="cb">Compilada desde tu C#. Contiene la lógica.</p>
+      </div>
+      <div class="card" style="text-align:center; border-top:6px solid var(--naranja);">
+        <div style="font-size:80px;">📄</div>
+        <div class="ct" style="margin-top:16px; font-size:32px;">Manifiesto <code>.addin</code></div>
+        <p class="cb">XML que le dice a Revit dónde está tu DLL y qué clase cargar.</p>
+      </div>
+      <div class="card" style="text-align:center; border-top:6px solid var(--menta);">
+        <div style="font-size:80px;">📂</div>
+        <div class="ct" style="margin-top:16px; font-size:32px;">Ubicación correcta</div>
+        <p class="cb"><code style="font-size:18px;">%APPDATA%\Autodesk\<br/>Revit\Addins\2026\</code></p>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">44 / 97</div>
+  </div>
+</section>
+
+<!-- 45: Diagrama del flujo -->
+<section data-label="45 Flujo build">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">De tu .cs a un botón en Revit</div>
+    <h1 class="slide-title" style="margin-top:24px;">El flujo completo</h1>
+    <div style="margin-top:80px; flex:1; display:flex; align-items:center; justify-content:center;">
+      <svg viewBox="0 0 1700 400" style="width:100%;">
+        <defs>
+          <marker id="arr3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="#1E3A5F"/>
+          </marker>
+        </defs>
+        <g font-family="JetBrains Mono">
+          <g><rect x="20" y="140" width="220" height="120" rx="12" fill="white" stroke="#0696D7" stroke-width="3"/><text x="130" y="195" text-anchor="middle" fill="#0696D7" font-size="28" font-weight="700">Tu .cs</text><text x="130" y="225" text-anchor="middle" fill="#666" font-size="16" font-family="Inter">código fuente</text></g>
+          <g><text x="280" y="180" font-size="18" fill="#1E3A5F" font-family="Inter">compilar</text><line x1="245" y1="200" x2="335" y2="200" stroke="#1E3A5F" stroke-width="3" marker-end="url(#arr3)"/></g>
+          <g><rect x="345" y="100" width="240" height="100" rx="12" fill="#0696D7"/><text x="465" y="155" text-anchor="middle" fill="white" font-size="22" font-weight="700">MiAddin.dll</text></g>
+          <g><rect x="345" y="220" width="240" height="100" rx="12" fill="#FF8200"/><text x="465" y="275" text-anchor="middle" fill="white" font-size="22" font-weight="700">MiAddin.addin</text></g>
+          <g><line x1="595" y1="200" x2="685" y2="200" stroke="#1E3A5F" stroke-width="3" marker-end="url(#arr3)"/><text x="640" y="180" font-size="18" fill="#1E3A5F" font-family="Inter" text-anchor="middle">copiar</text></g>
+          <g><rect x="700" y="120" width="380" height="160" rx="12" fill="white" stroke="#1E3A5F" stroke-width="3"/><text x="890" y="175" text-anchor="middle" fill="#1A1A1A" font-size="20" font-weight="600">%APPDATA%\Autodesk\</text><text x="890" y="210" text-anchor="middle" fill="#1A1A1A" font-size="20" font-weight="600">Revit\Addins\2026\</text></g>
+          <g><line x1="1090" y1="200" x2="1180" y2="200" stroke="#1E3A5F" stroke-width="3" marker-end="url(#arr3)"/><text x="1135" y="180" font-size="18" fill="#1E3A5F" font-family="Inter" text-anchor="middle">abrir Revit</text></g>
+          <g><rect x="1195" y="140" width="220" height="120" rx="12" fill="#1E3A5F"/><text x="1305" y="190" text-anchor="middle" fill="white" font-size="22" font-weight="700">Add-Ins</text><text x="1305" y="225" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="18" font-family="Inter">External Tools</text></g>
+          <g><line x1="1425" y1="200" x2="1500" y2="200" stroke="#1E3A5F" stroke-width="3" marker-end="url(#arr3)"/></g>
+          <g><rect x="1510" y="140" width="170" height="120" rx="12" fill="#00C896"/><text x="1595" y="200" text-anchor="middle" fill="white" font-size="28" font-weight="800" font-family="Inter">▶</text><text x="1595" y="235" text-anchor="middle" fill="white" font-size="18" font-family="Inter">corre</text></g>
+        </g>
+      </svg>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">45 / 97</div>
+  </div>
+</section>
+
+<!-- 46: Namespaces clave -->
+<section data-label="46 Namespaces">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">El árbol que vas a explorar mil veces</div>
+    <h1 class="slide-title" style="margin-top:24px;">Namespaces clave</h1>
+    <div style="margin-top:48px; flex:1; display:grid; grid-template-columns: repeat(2, 1fr); gap:24px;">
+      <div class="card dark">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:22px; color:#4EC9B0; font-weight:600;">Autodesk.Revit.DB</div>
+        <div style="font-size:20px; color:rgba(255,255,255,0.7); margin-top:14px; line-height:1.5;">
+          Document · Element · Wall · Floor · Parameter · Transaction · FilteredElementCollector…
+        </div>
+      </div>
+      <div class="card dark">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:22px; color:#DCDCAA; font-weight:600;">Autodesk.Revit.UI</div>
+        <div style="font-size:20px; color:rgba(255,255,255,0.7); margin-top:14px; line-height:1.5;">
+          UIApplication · UIDocument · TaskDialog · IExternalCommand · RibbonPanel · PushButton…
+        </div>
+      </div>
+      <div class="card dark">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:22px; color:#CE9178; font-weight:600;">Autodesk.Revit.Attributes</div>
+        <div style="font-size:20px; color:rgba(255,255,255,0.7); margin-top:14px; line-height:1.5;">
+          [Transaction(TransactionMode.Manual)] · [Regeneration(...)]
+        </div>
+      </div>
+      <div class="card dark">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:22px; color:#569CD6; font-weight:600;">Autodesk.Revit.ApplicationServices</div>
+        <div style="font-size:20px; color:rgba(255,255,255,0.7); margin-top:14px; line-height:1.5;">
+          Application · ControlledApplication (la app sin UI)
+        </div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">46 / 97</div>
+  </div>
+</section>
+
+<!-- 47: XML del manifiesto -->
+<section data-label="47 Manifiesto XML">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">El archivo .addin</div>
+    <h1 class="slide-title" style="margin-top:24px;">Estructura del manifiesto</h1>
+    <div style="margin-top:32px; flex:1;">
+<pre class="code" style="font-size:20px;"><span class="tok-com">&lt;?xml version="1.0" encoding="utf-8" standalone="no"?&gt;</span>
+<span class="tok-tag">&lt;RevitAddIns&gt;</span>
+  <span class="tok-tag">&lt;AddIn</span> <span class="tok-attr">Type</span>=<span class="tok-aval">"Command"</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;Name&gt;</span>Hola Revit<span class="tok-tag">&lt;/Name&gt;</span>
+    <span class="tok-tag">&lt;Assembly&gt;</span>HolaRevit.dll<span class="tok-tag">&lt;/Assembly&gt;</span>
+    <span class="tok-tag">&lt;FullClassName&gt;</span>HolaRevit.Command<span class="tok-tag">&lt;/FullClassName&gt;</span>
+    <span class="tok-tag">&lt;AddInId&gt;</span>D7E3A1F2-9C4B-4F8E-A1B2-3C4D5E6F7A8B<span class="tok-tag">&lt;/AddInId&gt;</span>
+    <span class="tok-tag">&lt;VendorId&gt;</span>BMM<span class="tok-tag">&lt;/VendorId&gt;</span>
+    <span class="tok-tag">&lt;VendorDescription&gt;</span>Brian Mendoza Márquez - Arkadis<span class="tok-tag">&lt;/VendorDescription&gt;</span>
+    <span class="tok-tag">&lt;Text&gt;</span>Hola Revit<span class="tok-tag">&lt;/Text&gt;</span>
+  <span class="tok-tag">&lt;/AddIn&gt;</span>
+<span class="tok-tag">&lt;/RevitAddIns&gt;</span></pre>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">47 / 97</div>
+  </div>
+</section>
+
+<!-- 48: Explicación campos -->
+<section data-label="48 Campos addin">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Campo por campo</div>
+    <h1 class="slide-title" style="margin-top:24px;">¿Qué significa cada cosa?</h1>
+    <div style="margin-top:48px; flex:1; display:grid; grid-template-columns: repeat(2, 1fr); gap:16px 32px; align-content:start;">
+      <div class="field"><code>Type</code><span><strong>Command</strong> o <strong>Application</strong></span></div>
+      <div class="field"><code>Name</code><span>Nombre interno del add-in</span></div>
+      <div class="field"><code>Assembly</code><span>Ruta a tu DLL (relativa al .addin)</span></div>
+      <div class="field"><code>FullClassName</code><span>Namespace + clase que implementa el comando</span></div>
+      <div class="field"><code>AddInId</code><span><strong>GUID único</strong> · genera el tuyo</span></div>
+      <div class="field"><code>VendorId</code><span>4 letras únicas tuyas (ej. <code>BMM</code>)</span></div>
+      <div class="field"><code>VendorDescription</code><span>Tu nombre / empresa visible</span></div>
+      <div class="field"><code>Text</code><span>Lo que se ve en el menú</span></div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">48 / 97</div>
+  </div>
+  <style>
+    .field { display:flex; gap:24px; align-items:center; padding:16px 20px; background:var(--gris-100); border-radius:10px; font-size:24px; }
+    .field code { background:var(--azul-claro); color:var(--azul-revit); padding:4px 12px; border-radius:6px; font-family:'JetBrains Mono',monospace; font-weight:600; min-width:200px; }
+  </style>
+</section>
+
+<!-- 49: GUID -->
+<section data-label="49 GUID">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Identidad única</div>
+    <h1 class="slide-title" style="margin-top:24px;">¿Por qué un <span style="color:var(--azul-revit);">GUID</span>?</h1>
+    <div style="margin-top:60px; display:flex; gap:48px; flex:1; align-items:center;">
+      <div style="flex:1;">
+        <div style="font-size:32px; line-height:1.4; color:var(--gris-900);">
+          Cada add-in necesita un <strong>identificador único global</strong> para que Revit lo distinga del resto.
+        </div>
+        <div style="background:var(--azul-claro); padding:32px; border-radius:12px; margin-top:32px;">
+          <div style="font-size:24px; color:var(--azul-revit); font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Genera el tuyo en VS</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:22px; margin-top:16px; color:var(--gris-900); line-height:1.5;">
+            Tools → Create GUID<br/>→ Registry Format → New GUID
+          </div>
+        </div>
+      </div>
+      <div style="flex:1;">
+        <div style="background:var(--code-bg); padding:32px; border-radius:12px; font-family:'JetBrains Mono',monospace; color:#4EC9B0; font-size:28px; word-break:break-all; line-height:1.5;">
+          D7E3A1F2-9C4B-<br/>4F8E-A1B2-<br/>3C4D5E6F7A8B
+        </div>
+        <div style="font-size:24px; color:var(--gris-600); margin-top:24px; font-style:italic; line-height:1.4;">128 bits aleatorios. Probabilidad de colisión: prácticamente cero.</div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">49 / 97</div>
+  </div>
+</section>
+
+<!-- 50: Curiosidad GUIDs duplicados -->
+<section data-label="50 Curiosidad GUID">
+  <div class="slide-frame curiosity" style="justify-content:center;">
+    <div class="badge" style="margin-bottom:48px;"><div class="bulb">💡</div> Pregunta curiosa</div>
+    <div class="q">
+      ¿Qué pasa si <strong>dos add-ins tienen el mismo GUID</strong>?
+    </div>
+    <div style="font-size:30px; color:var(--gris-700); margin-top:48px; max-width:1500px; line-height:1.5;">
+      Revit carga <strong>solo uno</strong> (el primero que encuentra alfabéticamente) y el otro queda <strong style="color:#D02525;">silenciosamente ignorado</strong>.
+    </div>
+    <div style="font-size:28px; color:var(--menta); margin-top:32px; font-weight:600;">
+      Por eso siempre genera un GUID nuevo. NUNCA copies y pegues el del tutorial.
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">50 / 97</div>
+  </div>
+</section>
+
+<!-- 51: Curiosidad - por qué .addin -->
+<section data-label="51 Curiosidad addin">
+  <div class="slide-frame curiosity" style="justify-content:center;">
+    <div class="badge" style="margin-bottom:48px;"><div class="bulb">💡</div> Pregunta curiosa</div>
+    <div class="q">
+      ¿Por qué el archivo se llama <strong>.addin</strong> y no <strong>.dll</strong> directamente?
+    </div>
+    <div style="font-size:28px; color:var(--gris-700); margin-top:48px; max-width:1600px; line-height:1.5;">
+      Porque Revit necesita un puntero ligero (XML) que le diga <strong>DÓNDE</strong> está la DLL,<br/><strong>QUÉ</strong> clase usar y <strong>QUÉ tipo</strong> de add-in es (comando o aplicación)…
+    </div>
+    <div style="font-size:28px; color:var(--menta); margin-top:24px; font-weight:600;">
+      …sin tener que cargar la DLL solo para averiguarlo.
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">51 / 97</div>
+  </div>
+</section>
+
+<!-- 52: Ubicaciones válidas -->
+<section data-label="52 Ubicaciones">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Dónde poner el .addin</div>
+    <h1 class="slide-title" style="margin-top:24px;">Ubicaciones válidas</h1>
+    <div style="margin-top:60px; display:grid; grid-template-columns: 1fr; gap:24px; flex:1;">
+      <div class="card" style="border-left:6px solid var(--azul-revit); display:flex; gap:32px; align-items:center;">
+        <div style="font-size:48px;">👤</div>
+        <div style="flex:1;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:26px; color:var(--azul-revit); font-weight:700;">%APPDATA%\Autodesk\Revit\Addins\2026\</div>
+          <div style="font-size:24px; color:var(--gris-700); margin-top:8px;">Solo para tu usuario · ideal en desarrollo</div>
+        </div>
+      </div>
+      <div class="card" style="border-left:6px solid var(--naranja); display:flex; gap:32px; align-items:center;">
+        <div style="font-size:48px;">👥</div>
+        <div style="flex:1;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:26px; color:var(--naranja); font-weight:700;">%PROGRAMDATA%\Autodesk\Revit\Addins\2026\</div>
+          <div style="font-size:24px; color:var(--gris-700); margin-top:8px;">Para todos los usuarios de la máquina · requiere admin</div>
+        </div>
+      </div>
+      <div class="card" style="border-left:6px solid var(--menta); display:flex; gap:32px; align-items:center;">
+        <div style="font-size:48px;">📦</div>
+        <div style="flex:1;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:26px; color:var(--menta); font-weight:700;">%PROGRAMDATA%\Autodesk\ApplicationPlugins\</div>
+          <div style="font-size:24px; color:var(--gris-700); margin-top:8px;">Bundle multi-versión (formato .bundle) · plugins comerciales</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">52 / 97</div>
+  </div>
+</section>
+
+<!-- 53: Tabla Command vs Application -->
+<section data-label="53 Tabla Command App">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Comparativa</div>
+    <h1 class="slide-title" style="margin-top:24px;">IExternalCommand vs IExternalApplication</h1>
+    <div style="margin-top:48px; flex:1;">
+      <table class="t">
+        <thead>
+          <tr><th></th><th>IExternalCommand</th><th>IExternalApplication</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Se ejecuta cuando</strong></td><td>El usuario hace clic</td><td>Revit arranca</td></tr>
+          <tr><td><strong>Aparece en</strong></td><td>Add-Ins → External Tools</td><td>Donde tú lo pongas (Ribbon)</td></tr>
+          <tr><td><strong>Type en .addin</strong></td><td><code>Command</code></td><td><code>Application</code></td></tr>
+          <tr><td><strong>Útil para</strong></td><td>Acciones puntuales</td><td>Crear tu Ribbon, cargar config</td></tr>
+          <tr class="hl"><td><strong>Hoy aprendemos…</strong></td><td>✅ <strong>Esto</strong></td><td>Próxima clase</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">53 / 97</div>
+  </div>
+</section>
+
+<!-- 54: Cierre sección 5 -->
+<section data-label="54 Cierre 05">
+  <div class="slide-frame" style="justify-content:center; background:var(--gris-100);">
+    <div style="font-size:24px; letter-spacing:0.3em; text-transform:uppercase; color:var(--gris-600); font-weight:500;">Cierre de sección</div>
+    <div style="font-size:72px; line-height:1.2; font-weight:600; margin-top:32px; max-width:1700px; color:var(--gris-900); letter-spacing:-0.02em;">
+      Hoy aprendemos <span style="color:var(--azul-revit);">IExternalCommand</span>.
+    </div>
+    <div style="font-size:48px; line-height:1.3; color:var(--gris-700); margin-top:32px; max-width:1700px;">
+      La próxima clase: <strong>IExternalApplication</strong> para tener tu propio Ribbon.
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">54 / 97</div>
+  </div>
+</section>
+
+<!-- ============== SECCIÓN 6 — HELLO REVIT ============== -->
+
+<!-- 55: Divisoria sección 06 -->
+<section data-label="55 Sección 06">
+  <div class="slide-frame divider" style="justify-content:center;">
+    <div class="label">Sección 06 · práctica</div>
+    <div style="display:flex; align-items:flex-end; gap:48px; margin-top:24px;">
+      <div class="num" style="color:var(--naranja);">06</div>
+      <div style="padding-bottom:60px;">
+        <div class="stitle">¡Manos al teclado!<br/>Hello Revit</div>
+        <div style="font-size:28px; color:rgba(255,255,255,0.7); margin-top:32px;">45 minutos · Tu primer add-in funcional</div>
+      </div>
+    </div>
+    <div class="footer light">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num light">55 / 97</div>
+  </div>
+</section>
+
+<!-- 56: Objetivo -->
+<section data-label="56 Objetivo">
+  <div class="slide-frame" style="justify-content:center;">
+    <div class="eyebrow-mini">Objetivo</div>
+    <div style="font-size:64px; line-height:1.25; font-weight:600; max-width:1700px; margin-top:32px; color:var(--gris-900); letter-spacing:-0.02em;">
+      Al final de los próximos 45 minutos vas a tener un <span style="color:var(--azul-revit);">comando funcional</span> en Revit que muestre un <code style="background:var(--gris-100); padding:4px 16px; border-radius:8px; font-family:'JetBrains Mono',monospace;">TaskDialog</code> con info del proyecto.
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">56 / 97</div>
+  </div>
+</section>
+
+<!-- 57: Paso 1 -->
+<section data-label="57 Paso 1">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">6.1 · Crear el proyecto</div>
+    <div style="display:flex; align-items:center; gap:32px; margin-top:32px;">
+      <div class="step-num" style="width:88px; height:88px; font-size:44px;">1</div>
+      <h1 class="slide-title">Abre Visual Studio 2022</h1>
+    </div>
+    <div style="margin-top:80px; flex:1; display:flex; align-items:center; justify-content:center;">
+      <div style="font-size:48px; color:var(--gris-800); display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
+        <code style="background:var(--gris-100); padding:12px 24px; border-radius:8px; font-family:'JetBrains Mono',monospace;">File</code>
+        <span style="color:var(--gris-500);">→</span>
+        <code style="background:var(--gris-100); padding:12px 24px; border-radius:8px; font-family:'JetBrains Mono',monospace;">New</code>
+        <span style="color:var(--gris-500);">→</span>
+        <code style="background:var(--azul-claro); color:var(--azul-revit); padding:12px 24px; border-radius:8px; font-family:'JetBrains Mono',monospace;">Project</code>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">57 / 97</div>
+  </div>
+</section>
+
+<!-- 58: Paso 2 -->
+<section data-label="58 Paso 2">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">6.1 · Crear el proyecto</div>
+    <div style="display:flex; align-items:center; gap:32px; margin-top:32px;">
+      <div class="step-num" style="width:88px; height:88px; font-size:44px;">2</div>
+      <h1 class="slide-title">Buscar Class Library</h1>
+    </div>
+    <div style="margin-top:80px; flex:1; display:flex; gap:48px; align-items:center;">
+      <div style="flex:1;">
+        <div style="background:var(--gris-100); border-radius:12px; padding:32px;">
+          <div style="font-size:22px; color:var(--gris-600); letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">Buscar</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:32px; color:var(--azul-revit); margin-top:12px;">"Class Library"</div>
+        </div>
+        <div style="background:#FFF5F5; border-radius:12px; padding:24px 32px; margin-top:24px; border-left:6px solid #D02525;">
+          <div style="font-size:22px; color:#D02525; font-weight:700;">⚠️ NO seleccionar</div>
+          <div style="font-size:24px; color:var(--gris-800); margin-top:8px;">"Class Library .NET Framework" (legacy)</div>
+        </div>
+      </div>
+      <div style="flex:1;">
+        <ul class="clean">
+          <li>Lenguaje: <strong>C#</strong></li>
+          <li>Plataforma: <strong>Windows</strong></li>
+          <li>Tipo: <strong>Library</strong></li>
+        </ul>
+        <div style="margin-top:32px;">
+          <span style="background:var(--azul-revit); color:#fff; padding:12px 32px; border-radius:8px; font-size:24px; font-weight:600;">Click Next →</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">58 / 97</div>
+  </div>
+</section>
+
+<!-- 59: Paso 3 -->
+<section data-label="59 Paso 3">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">6.1 · Crear el proyecto</div>
+    <div style="display:flex; align-items:center; gap:32px; margin-top:32px;">
+      <div class="step-num" style="width:88px; height:88px; font-size:44px;">3</div>
+      <h1 class="slide-title">Nombre y ubicación</h1>
+    </div>
+    <div style="margin-top:80px; flex:1; display:grid; grid-template-columns: 1fr 1fr; gap:48px;">
+      <div class="card">
+        <div style="font-size:22px; color:var(--gris-600); letter-spacing:0.15em; text-transform:uppercase; font-weight:600;">Project name</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:36px; color:var(--azul-revit); margin-top:16px; font-weight:700;">HolaRevit</div>
+      </div>
+      <div class="card">
+        <div style="font-size:22px; color:var(--gris-600); letter-spacing:0.15em; text-transform:uppercase; font-weight:600;">Location</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:30px; color:var(--azul-revit); margin-top:16px; font-weight:600;">C:\DevRevit\HolaRevit</div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">59 / 97</div>
+  </div>
+</section>
+
+<!-- 60: Paso 4 -->
+<section data-label="60 Paso 4">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">6.1 · Crear el proyecto</div>
+    <div style="display:flex; align-items:center; gap:32px; margin-top:32px;">
+      <div class="step-num" style="width:88px; height:88px; font-size:44px;">4</div>
+      <h1 class="slide-title">Framework</h1>
+    </div>
+    <div style="margin-top:60px; flex:1; display:flex; gap:48px; align-items:center;">
+      <div style="flex:1;">
+        <div style="background:var(--azul-claro); border-radius:16px; padding:48px; border:3px solid var(--azul-revit);">
+          <div style="font-size:24px; color:var(--azul-revit); font-weight:700; letter-spacing:0.15em; text-transform:uppercase;">Selecciona</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:42px; color:var(--gris-900); margin-top:16px; font-weight:700;">.NET 8.0 (LTS)</div>
+          <div style="font-size:22px; color:var(--gris-600); margin-top:8px;">Long-term support</div>
+        </div>
+      </div>
+      <div style="flex:1; background:#FFF5F5; border-radius:16px; padding:48px; border-left:6px solid #D02525;">
+        <div style="font-size:24px; color:#D02525; font-weight:700; letter-spacing:0.15em; text-transform:uppercase;">⚠️ Importante</div>
+        <div style="font-size:30px; line-height:1.4; margin-top:20px; color:var(--gris-900);">
+          Revit <strong>2026</strong> requiere <strong>.NET 8</strong>. Si eliges otro, no cargará.
+        </div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">60 / 97</div>
+  </div>
+</section>
+
+<!-- 61: Paso 5 - editar csproj -->
+<section data-label="61 Paso 5 csproj">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">6.1 · Crear el proyecto</div>
+    <div style="display:flex; align-items:center; gap:32px; margin-top:32px;">
+      <div class="step-num" style="width:88px; height:88px; font-size:44px;">5</div>
+      <h1 class="slide-title">Editar HolaRevit.csproj</h1>
+    </div>
+    <div style="margin-top:32px; flex:1;">
+      <div style="font-size:24px; color:var(--gris-700); margin-bottom:24px;">Click derecho sobre el proyecto → <code>Edit Project File</code>. Reemplazar por:</div>
+<pre class="code"><span class="tok-tag">&lt;Project</span> <span class="tok-attr">Sdk</span>=<span class="tok-aval">"Microsoft.NET.Sdk"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;PropertyGroup&gt;</span>
+    <span class="tok-tag">&lt;TargetFramework&gt;</span>net8.0-windows<span class="tok-tag">&lt;/TargetFramework&gt;</span>
+    <span class="tok-tag">&lt;UseWPF&gt;</span>true<span class="tok-tag">&lt;/UseWPF&gt;</span>
+    <span class="tok-tag">&lt;PlatformTarget&gt;</span>x64<span class="tok-tag">&lt;/PlatformTarget&gt;</span>
+    <span class="tok-tag">&lt;Nullable&gt;</span>enable<span class="tok-tag">&lt;/Nullable&gt;</span>
+    <span class="tok-tag">&lt;LangVersion&gt;</span>latest<span class="tok-tag">&lt;/LangVersion&gt;</span>
+  <span class="tok-tag">&lt;/PropertyGroup&gt;</span>
+<span class="tok-tag">&lt;/Project&gt;</span></pre>
+      <div style="font-size:22px; color:var(--gris-600); margin-top:24px; line-height:1.4;">
+        <strong>Importante:</strong> <code>net8.0-windows</code> (no <code>net8.0</code>) y <code>UseWPF=true</code> porque Revit usa WPF internamente.
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">61 / 97</div>
+  </div>
+</section>
+
+<!-- 62: Paso 6 - referencias -->
+<section data-label="62 Paso 6">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">6.2 · Referencias a la API</div>
+    <div style="display:flex; align-items:center; gap:32px; margin-top:32px;">
+      <div class="step-num" style="width:88px; height:88px; font-size:44px;">6</div>
+      <h1 class="slide-title">Add Project Reference</h1>
+    </div>
+    <div style="margin-top:80px; flex:1; display:flex; align-items:center; justify-content:center;">
+      <div style="font-size:36px; color:var(--gris-800); display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
+        <span>Click derecho sobre</span>
+        <code style="background:var(--gris-100); padding:12px 24px; border-radius:8px; font-family:'JetBrains Mono',monospace;">Dependencies</code>
+        <span style="color:var(--gris-500);">→</span>
+        <code style="background:var(--gris-100); padding:12px 24px; border-radius:8px; font-family:'JetBrains Mono',monospace;">Add Project Reference</code>
+        <span style="color:var(--gris-500);">→</span>
+        <code style="background:var(--azul-claro); color:var(--azul-revit); padding:12px 24px; border-radius:8px; font-family:'JetBrains Mono',monospace;">Browse</code>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">62 / 97</div>
+  </div>
+</section>
+
+<!-- 63: Paso 7 - seleccionar DLLs -->
+<section data-label="63 Paso 7">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">6.2 · Referencias a la API</div>
+    <div style="display:flex; align-items:center; gap:32px; margin-top:32px;">
+      <div class="step-num" style="width:88px; height:88px; font-size:44px;">7</div>
+      <h1 class="slide-title">Selecciona los dos DLLs</h1>
+    </div>
+    <div style="margin-top:60px; flex:1;">
+      <div style="background:var(--gris-100); padding:32px; border-radius:12px;">
+        <div style="font-size:24px; color:var(--gris-600); letter-spacing:0.15em; text-transform:uppercase; font-weight:600;">Navega a</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:30px; color:var(--gris-900); margin-top:12px; font-weight:600;">C:\Program Files\Autodesk\Revit 2026\</div>
+      </div>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:24px; margin-top:32px;">
+        <div class="card dark"><div style="font-family:'JetBrains Mono',monospace; font-size:30px; color:#4EC9B0; font-weight:700;">RevitAPI.dll</div></div>
+        <div class="card dark"><div style="font-family:'JetBrains Mono',monospace; font-size:30px; color:#DCDCAA; font-weight:700;">RevitAPIUI.dll</div></div>
+      </div>
+      <div style="margin-top:32px; text-align:center; font-size:28px; color:var(--gris-700);">
+        Click <span style="background:var(--azul-revit); color:#fff; padding:8px 24px; border-radius:8px; font-weight:600;">OK</span>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">63 / 97</div>
+  </div>
+</section>
+
+<!-- 64: Paso 8 - Copy Local False -->
+<section data-label="64 Paso 8">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">6.2 · Referencias a la API</div>
+    <div style="display:flex; align-items:center; gap:32px; margin-top:32px;">
+      <div class="step-num" style="width:88px; height:88px; font-size:44px; background:#D02525;">8</div>
+      <h1 class="slide-title"><span style="color:#D02525;">🔑 CRÍTICO:</span> Copy Local = False</h1>
+    </div>
+    <div style="margin-top:60px; flex:1; display:flex; align-items:center;">
+      <div style="background:#FFF5F5; border-left:6px solid #D02525; padding:48px; border-radius:12px; width:100%;">
+        <div style="font-size:32px; color:var(--gris-900); line-height:1.4;">
+          Click sobre <strong>cada referencia</strong> en Solution Explorer → <code style="background:#fff; padding:4px 12px; border-radius:6px; font-family:'JetBrains Mono',monospace;">Properties</code> → <code style="background:#fff; padding:4px 12px; border-radius:6px; font-family:'JetBrains Mono',monospace;">Copy Local = False</code>
+        </div>
+        <div style="font-size:26px; color:#D02525; margin-top:32px; font-weight:700; line-height:1.4;">
+          Si copias estas DLLs a tu output, Revit truena al cargar tu add-in.
+        </div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">64 / 97</div>
+  </div>
+</section>
+
+<!-- 65: Paso 9 -->
+<section data-label="65 Paso 9">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">6.3 · Escribir el comando</div>
+    <div style="display:flex; align-items:center; gap:32px; margin-top:32px;">
+      <div class="step-num" style="width:88px; height:88px; font-size:44px;">9</div>
+      <h1 class="slide-title">Crear Command.cs</h1>
+    </div>
+    <div style="margin-top:80px; flex:1; display:flex; align-items:center; justify-content:center;">
+      <div style="font-size:30px; color:var(--gris-800); line-height:1.6; max-width:1500px;">
+        Borra el <code style="background:var(--gris-100); padding:4px 10px; border-radius:6px; font-family:'JetBrains Mono',monospace;">Class1.cs</code> que vino por defecto.<br/><br/>
+        Click derecho en el proyecto → <code style="background:var(--gris-100); padding:4px 10px; border-radius:6px; font-family:'JetBrains Mono',monospace;">Add → Class</code> → nómbralo <strong style="color:var(--azul-revit);">Command.cs</strong>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">65 / 97</div>
+  </div>
+</section>
+
+<!-- 66: Paso 10 - el código -->
+<section data-label="66 Paso 10 código">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">6.3 · Paso 10 · Pega este código</div>
+    <h1 class="slide-title" style="margin-top:24px; font-size:48px;">Command.cs</h1>
+    <div style="margin-top:24px; flex:1;">
+<pre class="code" style="font-size:18px; line-height:1.45;"><span class="tok-key">using</span> Autodesk.Revit.Attributes;
+<span class="tok-key">using</span> Autodesk.Revit.DB;
+<span class="tok-key">using</span> Autodesk.Revit.UI;
+
+<span class="tok-key">namespace</span> HolaRevit
+{
+    [<span class="tok-attr">Transaction</span>(<span class="tok-type">TransactionMode</span>.ReadOnly)]
+    [<span class="tok-attr">Regeneration</span>(<span class="tok-type">RegenerationOption</span>.Manual)]
+    <span class="tok-key">public class</span> <span class="tok-type">Command</span> : <span class="tok-type">IExternalCommand</span>
+    {
+        <span class="tok-key">public</span> <span class="tok-type">Result</span> Execute(
+            <span class="tok-type">ExternalCommandData</span> commandData,
+            <span class="tok-key">ref string</span> message,
+            <span class="tok-type">ElementSet</span> elements)
+        {
+            <span class="tok-type">UIApplication</span> uiApp = commandData.Application;
+            <span class="tok-type">Document</span> doc = uiApp.ActiveUIDocument.Document;
+
+            <span class="tok-key">string</span> nombreProyecto = doc.ProjectInformation.Name;
+            <span class="tok-key">string</span> archivo = <span class="tok-key">string</span>.IsNullOrEmpty(doc.PathName)
+                ? <span class="tok-str">"(sin guardar)"</span>
+                : doc.PathName;
+            <span class="tok-key">int</span> totalElementos = <span class="tok-key">new</span> <span class="tok-type">FilteredElementCollector</span>(doc)
+                .WhereElementIsNotElementType()
+                .GetElementCount();
+
+            <span class="tok-type">TaskDialog</span> dlg = <span class="tok-key">new</span> <span class="tok-type">TaskDialog</span>(<span class="tok-str">"¡Hola Revit!"</span>)
+            {
+                MainInstruction = $<span class="tok-str">"¡Hola, {nombreProyecto}!"</span>,
+                MainContent =
+                    $<span class="tok-str">"Archivo: {archivo}\n"</span> +
+                    $<span class="tok-str">"Versión Revit: {uiApp.Application.VersionNumber}\n"</span> +
+                    $<span class="tok-str">"Build: {uiApp.Application.VersionBuild}\n"</span> +
+                    $<span class="tok-str">"Total de elementos en el modelo: {totalElementos}"</span>,
+                CommonButtons = <span class="tok-type">TaskDialogCommonButtons</span>.Ok
+            };
+            dlg.Show();
+
+            <span class="tok-key">return</span> <span class="tok-type">Result</span>.Succeeded;
+        }
+    }
+}</pre>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">66 / 97</div>
+  </div>
+</section>
+
+<!-- 67: Explicación bloques -->
+<section data-label="67 Explicación código">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">¿Qué hace cada parte?</div>
+    <h1 class="slide-title" style="margin-top:24px;">Lectura del código</h1>
+    <div style="margin-top:48px; flex:1; display:grid; grid-template-columns: 1fr; gap:14px;">
+      <div class="exp"><code>[Transaction(TransactionMode.ReadOnly)]</code><span>Solo lee el modelo, no lo modifica.</span></div>
+      <div class="exp"><code>IExternalCommand</code><span>Contrato obligatorio para ser un comando.</span></div>
+      <div class="exp"><code>commandData.Application</code><span>Puerta de entrada a TODA la API.</span></div>
+      <div class="exp"><code>FilteredElementCollector</code><span>La herramienta más usada de la API. Filtra elementos del modelo.</span></div>
+      <div class="exp"><code>TaskDialog</code><span>Diálogo nativo de Revit. <strong>No uses</strong> <code>MessageBox</code> de WinForms.</span></div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">67 / 97</div>
+  </div>
+  <style>
+    .exp { display:grid; grid-template-columns: 480px 1fr; gap:32px; align-items:center; padding:18px 24px; background:var(--gris-100); border-radius:10px; font-size:24px; }
+    .exp code { background:var(--code-bg); color:#4EC9B0; padding:8px 14px; border-radius:6px; font-family:'JetBrains Mono',monospace; font-size:18px; }
+    .exp span code { background:var(--azul-claro); color:var(--azul-revit); font-size:20px; padding:2px 8px; }
+    .exp span { color:var(--gris-800); line-height:1.4; }
+  </style>
+</section>
+
+<!-- 68: Paso 11 - manifiesto -->
+<section data-label="68 Paso 11">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">6.4 · Crear el manifiesto</div>
+    <div style="display:flex; align-items:center; gap:32px; margin-top:32px;">
+      <div class="step-num" style="width:88px; height:88px; font-size:44px;">11</div>
+      <h1 class="slide-title">Add → New Item → XML File</h1>
+    </div>
+    <div style="margin-top:80px; flex:1; display:flex; align-items:center; justify-content:center;">
+      <div style="font-size:32px; color:var(--gris-800); line-height:1.6;">
+        Click derecho en el proyecto<br/>→ <code style="background:var(--gris-100); padding:4px 12px; border-radius:6px; font-family:'JetBrains Mono',monospace;">Add → New Item → XML File</code><br/>→ Nombrar <strong style="color:var(--azul-revit);">HolaRevit.addin</strong>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">68 / 97</div>
+  </div>
+</section>
+
+<!-- 69: Paso 12 - pegar XML -->
+<section data-label="69 Paso 12">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">6.4 · Crear el manifiesto</div>
+    <div style="display:flex; align-items:center; gap:32px; margin-top:32px;">
+      <div class="step-num" style="width:88px; height:88px; font-size:44px;">12</div>
+      <h1 class="slide-title">Pegar el XML</h1>
+    </div>
+    <div style="margin-top:32px; flex:1;">
+<pre class="code" style="font-size:20px;"><span class="tok-com">&lt;?xml version="1.0" encoding="utf-8" standalone="no"?&gt;</span>
+<span class="tok-tag">&lt;RevitAddIns&gt;</span>
+  <span class="tok-tag">&lt;AddIn</span> <span class="tok-attr">Type</span>=<span class="tok-aval">"Command"</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;Name&gt;</span>Hola Revit<span class="tok-tag">&lt;/Name&gt;</span>
+    <span class="tok-tag">&lt;Assembly&gt;</span>HolaRevit.dll<span class="tok-tag">&lt;/Assembly&gt;</span>
+    <span class="tok-tag">&lt;FullClassName&gt;</span>HolaRevit.Command<span class="tok-tag">&lt;/FullClassName&gt;</span>
+    <span class="tok-tag">&lt;AddInId&gt;</span><span style="background:#5C2C00; padding:0 6px; border-radius:4px;">D7E3A1F2-9C4B-4F8E-A1B2-3C4D5E6F7A8B</span><span class="tok-tag">&lt;/AddInId&gt;</span>
+    <span class="tok-tag">&lt;VendorId&gt;</span>BMM<span class="tok-tag">&lt;/VendorId&gt;</span>
+    <span class="tok-tag">&lt;VendorDescription&gt;</span>Brian Mendoza Márquez - Arkadis<span class="tok-tag">&lt;/VendorDescription&gt;</span>
+    <span class="tok-tag">&lt;Text&gt;</span>Hola Revit<span class="tok-tag">&lt;/Text&gt;</span>
+  <span class="tok-tag">&lt;/AddIn&gt;</span>
+<span class="tok-tag">&lt;/RevitAddIns&gt;</span></pre>
+      <div style="font-size:22px; color:var(--naranja); margin-top:24px; font-weight:600;">⚠️ Reemplaza el GUID resaltado por el TUYO (Tools → Create GUID).</div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">69 / 97</div>
+  </div>
+</section>
+
+<!-- 70: Paso 13 -->
+<section data-label="70 Paso 13">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">6.4 · Crear el manifiesto</div>
+    <div style="display:flex; align-items:center; gap:32px; margin-top:32px;">
+      <div class="step-num" style="width:88px; height:88px; font-size:44px;">13</div>
+      <h1 class="slide-title">Copy to Output Directory</h1>
+    </div>
+    <div style="margin-top:80px; flex:1; display:flex; align-items:center; justify-content:center;">
+      <div style="background:var(--azul-claro); border-radius:16px; padding:48px; max-width:1400px;">
+        <div style="font-size:30px; color:var(--gris-900); line-height:1.5;">
+          Selecciona <code style="background:#fff; padding:4px 12px; border-radius:6px; font-family:'JetBrains Mono',monospace;">HolaRevit.addin</code> en Solution Explorer<br/>
+          → <code style="background:#fff; padding:4px 12px; border-radius:6px; font-family:'JetBrains Mono',monospace;">Properties</code><br/>
+          → <strong style="color:var(--azul-revit);">Copy to Output Directory = Copy if newer</strong>
+        </div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">70 / 97</div>
+  </div>
+</section>
+
+<!-- 71: Paso 14 - build -->
+<section data-label="71 Paso 14">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">6.5 · Compilar y desplegar</div>
+    <div style="display:flex; align-items:center; gap:32px; margin-top:32px;">
+      <div class="step-num" style="width:88px; height:88px; font-size:44px;">14</div>
+      <h1 class="slide-title">Build Solution</h1>
+    </div>
+    <div style="margin-top:60px; flex:1; display:flex; gap:48px; align-items:center;">
+      <div style="flex:1; text-align:center;">
+        <div style="background:var(--gris-900); color:#fff; padding:48px; border-radius:16px;">
+          <div style="font-size:24px; color:rgba(255,255,255,0.6); letter-spacing:0.15em; text-transform:uppercase; font-weight:600;">Atajo</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:48px; font-weight:700; margin-top:16px;">Ctrl + Shift + B</div>
+        </div>
+      </div>
+      <div style="flex:1;">
+        <div style="font-size:24px; color:var(--gris-600); letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">Output esperado</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:22px; color:var(--gris-900); margin-top:16px; background:var(--gris-100); padding:20px; border-radius:8px; line-height:1.5;">
+          bin\Debug\<br/>net8.0-windows\<br/><strong style="color:var(--azul-revit);">HolaRevit.dll</strong>
+        </div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">71 / 97</div>
+  </div>
+</section>
+
+<!-- 72: Paso 15 - copiar manualmente -->
+<section data-label="72 Paso 15">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">6.5 · Compilar y desplegar</div>
+    <div style="display:flex; align-items:center; gap:32px; margin-top:32px;">
+      <div class="step-num" style="width:88px; height:88px; font-size:44px;">15</div>
+      <h1 class="slide-title">Copia DLL + .addin a Revit</h1>
+    </div>
+    <div style="margin-top:48px; flex:1;">
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:24px;">
+        <div class="card dark"><div style="font-family:'JetBrains Mono',monospace; font-size:26px; color:#4EC9B0;">HolaRevit.dll</div></div>
+        <div class="card dark"><div style="font-family:'JetBrains Mono',monospace; font-size:26px; color:#DCDCAA;">HolaRevit.addin</div></div>
+      </div>
+      <div style="text-align:center; margin:32px 0; font-size:32px; color:var(--gris-600);">↓ a ↓</div>
+      <div style="background:var(--azul-claro); padding:32px; border-radius:12px; text-align:center;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:36px; color:var(--azul-revit); font-weight:700;">%APPDATA%\Autodesk\Revit\Addins\2026\</div>
+      </div>
+      <div style="font-size:22px; color:var(--gris-600); margin-top:24px; line-height:1.4;">
+        💡 Tip: pega esa ruta tal cual en el explorador de Windows. <code>%APPDATA%</code> se expande automático.
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">72 / 97</div>
+  </div>
+</section>
+
+<!-- 73: Paso 16 - post-build -->
+<section data-label="73 Paso 16">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">6.5 · Truco pro</div>
+    <div style="display:flex; align-items:center; gap:32px; margin-top:32px;">
+      <div class="step-num" style="width:88px; height:88px; font-size:44px;">16</div>
+      <h1 class="slide-title">Auto-deploy con post-build</h1>
+    </div>
+    <div style="margin-top:32px; flex:1;">
+      <div style="font-size:22px; color:var(--gris-700); margin-bottom:20px;">Edita el <code>.csproj</code> y agrega antes de <code>&lt;/Project&gt;</code>:</div>
+<pre class="code"><span class="tok-tag">&lt;Target</span> <span class="tok-attr">Name</span>=<span class="tok-aval">"DeployAddin"</span> <span class="tok-attr">AfterTargets</span>=<span class="tok-aval">"Build"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;Copy</span>
+    <span class="tok-attr">SourceFiles</span>=<span class="tok-aval">"$(TargetDir)$(AssemblyName).dll;$(TargetDir)$(AssemblyName).addin"</span>
+    <span class="tok-attr">DestinationFolder</span>=<span class="tok-aval">"$(AppData)\Autodesk\Revit\Addins\2026\"</span> <span class="tok-tag">/&gt;</span>
+<span class="tok-tag">&lt;/Target&gt;</span></pre>
+      <div style="background:var(--menta-suave); border-left:6px solid var(--menta); padding:24px 32px; border-radius:8px; margin-top:24px;">
+        <div style="font-size:24px; color:#008f6c; font-weight:700;">✨ Resultado</div>
+        <div style="font-size:24px; color:var(--gris-800); margin-top:8px; line-height:1.4;">Cada vez que hagas Build, los archivos se copian solos. Olvídate del Ctrl+C / Ctrl+V.</div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">73 / 97</div>
+  </div>
+</section>
+
+<!-- 74: Paso 17 - abrir Revit -->
+<section data-label="74 Paso 17">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">6.6 · Probar en Revit</div>
+    <div style="display:flex; align-items:center; gap:32px; margin-top:32px;">
+      <div class="step-num" style="width:88px; height:88px; font-size:44px;">17</div>
+      <h1 class="slide-title">Abre Revit 2026</h1>
+    </div>
+    <div style="margin-top:60px; flex:1; display:flex; gap:48px; align-items:center;">
+      <div style="flex:1;">
+        <div style="font-size:28px; color:var(--gris-800); line-height:1.5;">
+          Si Revit te muestra una <strong>advertencia de seguridad</strong> al cargar tu add-in…
+        </div>
+      </div>
+      <div style="flex:1; background:var(--azul-claro); border-radius:16px; padding:48px;">
+        <div style="font-size:24px; color:var(--azul-revit); font-weight:700; letter-spacing:0.15em; text-transform:uppercase;">Selecciona</div>
+        <div style="font-size:44px; font-weight:800; color:var(--gris-900); margin-top:16px;">Always Load</div>
+        <div style="font-size:22px; color:var(--gris-600); margin-top:12px; line-height:1.4;">Para no ver el aviso cada arranque.</div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">74 / 97</div>
+  </div>
+</section>
+
+<!-- 75: Paso 18 -->
+<section data-label="75 Paso 18">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">6.6 · Probar en Revit</div>
+    <div style="display:flex; align-items:center; gap:32px; margin-top:32px;">
+      <div class="step-num" style="width:88px; height:88px; font-size:44px;">18</div>
+      <h1 class="slide-title">Abre cualquier proyecto</h1>
+    </div>
+    <div style="margin-top:80px; flex:1; display:flex; align-items:center; justify-content:center;">
+      <div style="font-size:36px; color:var(--gris-800); line-height:1.5; text-align:center; max-width:1400px;">
+        Una plantilla en blanco está bien.<br/>
+        <span style="color:var(--gris-600); font-size:28px; font-style:italic;">No necesitas un modelo complejo para esta primera prueba.</span>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">75 / 97</div>
+  </div>
+</section>
+
+<!-- 76: Paso 19 - lanzar el comando -->
+<section data-label="76 Paso 19">
+  <div class="slide-frame" style="background:linear-gradient(135deg, #E8F9F2, #B8E8D4);">
+    <div class="eyebrow-mini">6.6 · Probar en Revit</div>
+    <div style="display:flex; align-items:center; gap:32px; margin-top:32px;">
+      <div class="step-num" style="width:88px; height:88px; font-size:44px; background:var(--menta);">19</div>
+      <h1 class="slide-title">Add-Ins → External Tools → Hola Revit</h1>
+    </div>
+    <div style="margin-top:80px; flex:1; display:flex; align-items:center; justify-content:center; flex-direction:column;">
+      <div style="font-size:120px;">🎉</div>
+      <div style="font-size:64px; font-weight:800; color:var(--gris-900); margin-top:32px; letter-spacing:-0.02em;">¡Y aparece el TaskDialog!</div>
+      <div style="font-size:32px; color:var(--gris-600); margin-top:24px;">Tu primer add-in funcionando.</div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">76 / 97</div>
+  </div>
+</section>
+
+<!-- 77: Paso 20 - Debug F5 setup -->
+<section data-label="77 Paso 20">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">6.7 · Debug con F5</div>
+    <div style="display:flex; align-items:center; gap:32px; margin-top:32px;">
+      <div class="step-num" style="width:88px; height:88px; font-size:44px;">20</div>
+      <h1 class="slide-title">Configurar perfil de debug</h1>
+    </div>
+    <div style="margin-top:80px; flex:1; display:flex; align-items:center; justify-content:center;">
+      <div style="font-size:30px; color:var(--gris-800); line-height:1.6; max-width:1500px;">
+        Click derecho en el proyecto →<br/>
+        <code style="background:var(--gris-100); padding:4px 12px; border-radius:6px; font-family:'JetBrains Mono',monospace;">Properties → Debug → Open debug launch profiles UI</code>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">77 / 97</div>
+  </div>
+</section>
+
+<!-- 78: Paso 21 - perfil executable -->
+<section data-label="78 Paso 21">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">6.7 · Debug con F5</div>
+    <div style="display:flex; align-items:center; gap:32px; margin-top:32px;">
+      <div class="step-num" style="width:88px; height:88px; font-size:44px;">21</div>
+      <h1 class="slide-title">Crear perfil <em>Executable</em></h1>
+    </div>
+    <div style="margin-top:48px; flex:1; display:grid; grid-template-columns: 1fr; gap:20px; align-content:start;">
+      <div class="card">
+        <div style="font-size:22px; color:var(--gris-600); letter-spacing:0.15em; text-transform:uppercase; font-weight:600;">Executable</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:24px; color:var(--azul-revit); margin-top:12px; font-weight:600;">C:\Program Files\Autodesk\Revit 2026\Revit.exe</div>
+      </div>
+      <div class="card">
+        <div style="font-size:22px; color:var(--gris-600); letter-spacing:0.15em; text-transform:uppercase; font-weight:600;">Working directory</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:24px; color:var(--azul-revit); margin-top:12px; font-weight:600;">C:\Program Files\Autodesk\Revit 2026\</div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">78 / 97</div>
+  </div>
+</section>
+
+<!-- 79: Paso 22 - F5 -->
+<section data-label="79 Paso 22">
+  <div class="slide-frame" style="background:var(--azul-profundo); color:#fff;">
+    <div style="font-size:22px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.6); font-weight:600;">6.7 · Debug con F5</div>
+    <div style="display:flex; align-items:center; gap:32px; margin-top:32px;">
+      <div class="step-num" style="width:88px; height:88px; font-size:44px; background:var(--naranja);">22</div>
+      <h1 class="slide-title" style="color:#fff;">Pulsa <span style="color:var(--naranja); font-family:'JetBrains Mono',monospace;">F5</span> ✨</h1>
+    </div>
+    <div style="margin-top:60px; flex:1; display:flex; align-items:center; justify-content:center;">
+      <div style="max-width:1500px;">
+        <ol style="font-size:32px; line-height:1.6; color:rgba(255,255,255,0.9); padding-left:32px;">
+          <li>Pon un breakpoint en <code style="background:rgba(255,255,255,0.1); padding:2px 10px; border-radius:6px; font-family:'JetBrains Mono',monospace; color:var(--menta);">Execute()</code></li>
+          <li>Pulsa <strong style="color:var(--naranja);">F5</strong></li>
+          <li>Revit arranca automáticamente</li>
+          <li>Abres un proyecto y lanzas el comando</li>
+          <li>VS se detiene en tu breakpoint</li>
+        </ol>
+        <div style="font-size:48px; color:var(--menta); margin-top:48px; font-weight:700;">Magia. ✨</div>
+      </div>
+    </div>
+    <div class="footer light">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num light">79 / 97</div>
+  </div>
+</section>
+
+<!-- 80: Curiosidad UTF-8 BOM -->
+<section data-label="80 Curiosidad BOM">
+  <div class="slide-frame curiosity" style="justify-content:center;">
+    <div class="badge" style="margin-bottom:48px;"><div class="bulb">💡</div> Pregunta curiosa</div>
+    <div class="q">
+      Si guardas el <code style="background:#fff; padding:0 12px; border-radius:6px;">.addin</code> con encoding <strong>UTF-8 BOM</strong> en lugar de UTF-8 sin BOM, <strong style="color:#D02525;">Revit no lo carga y no te dice por qué</strong>.
+    </div>
+    <div style="font-size:28px; color:var(--gris-700); margin-top:48px; max-width:1600px; line-height:1.5;">
+      Usa siempre <strong>UTF-8 sin BOM</strong>.<br/>
+      En VS: <code style="background:#fff; padding:4px 12px; border-radius:6px; font-family:'JetBrains Mono',monospace;">File → Save As → flecha del botón Save → Save with Encoding</code>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">80 / 97</div>
+  </div>
+</section>
+
+<!-- ============== SECCIÓN 7 — TEASER RIBBON + INNO SETUP ============== -->
+
+<!-- 81: Divisoria sección 07 -->
+<section data-label="81 Sección 07">
+  <div class="slide-frame divider" style="justify-content:center;">
+    <div class="label">Sección 07 · teaser</div>
+    <div style="display:flex; align-items:flex-end; gap:48px; margin-top:24px;">
+      <div class="num">07</div>
+      <div style="padding-bottom:60px;">
+        <div class="stitle">Próxima clase:<br/>tu propio Ribbon</div>
+        <div style="font-size:28px; color:rgba(255,255,255,0.7); margin-top:32px;">10 minutos · Sneak peek</div>
+      </div>
+    </div>
+    <div class="footer light">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num light">81 / 97</div>
+  </div>
+</section>
+
+<!-- 82: Mockup Ribbon -->
+<section data-label="82 Ribbon mockup">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Esto es lo que vas a construir</div>
+    <h1 class="slide-title" style="margin-top:24px;">Tu pestaña, tu botón</h1>
+    <div style="margin-top:60px; flex:1; display:flex; align-items:center; justify-content:center;">
+      <div style="width:100%; max-width:1500px;">
+        <!-- Mock ribbon -->
+        <div style="background:#2C3038; border-radius:8px 8px 0 0; padding:8px 16px; display:flex; gap:24px; font-family:'Inter',sans-serif; color:#A8ADB5; font-size:14px;">
+          <span>Architecture</span><span>Structure</span><span>Steel</span><span>Systems</span><span>Insert</span><span>Annotate</span><span>Analyze</span>
+          <span style="background:#0696D7; color:#fff; padding:2px 14px; border-radius:4px; font-weight:600;">Arkadis</span>
+          <span>Massing</span><span>View</span><span>Manage</span><span>Add-Ins</span>
+        </div>
+        <div style="background:#3B4048; border-radius:0 0 8px 8px; padding:24px 32px; display:flex; align-items:center; gap:24px;">
+          <div style="background:#2C3038; padding:16px 24px; border-radius:6px; display:flex; flex-direction:column; align-items:center; gap:12px;">
+            <div style="width:64px; height:64px; background:linear-gradient(135deg, #0696D7, #1E3A5F); border-radius:8px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:36px; font-weight:800;">H</div>
+            <div style="color:#fff; font-size:13px; text-align:center; line-height:1.2;">Hola<br/>Revit</div>
+          </div>
+          <div style="background:#2C3038; padding:16px 24px; border-radius:6px; display:flex; flex-direction:column; align-items:center; gap:12px; opacity:0.4;">
+            <div style="width:64px; height:64px; background:#5B6068; border-radius:8px;"></div>
+            <div style="color:#fff; font-size:13px;">Próx</div>
+          </div>
+          <div style="background:#2C3038; padding:16px 24px; border-radius:6px; display:flex; flex-direction:column; align-items:center; gap:12px; opacity:0.4;">
+            <div style="width:64px; height:64px; background:#5B6068; border-radius:8px;"></div>
+            <div style="color:#fff; font-size:13px;">Próx</div>
+          </div>
+          <div style="border-bottom:1px solid #5B6068; padding-bottom:6px; color:#A8ADB5; font-size:13px; margin-left:auto;">Mis Herramientas ▾</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">82 / 97</div>
+  </div>
+</section>
+
+<!-- 83: Sneak peek código App -->
+<section data-label="83 IExternalApplication">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Sneak peek · IExternalApplication</div>
+    <h1 class="slide-title" style="margin-top:24px;">Crear el Ribbon en código</h1>
+    <div style="margin-top:32px; flex:1;">
+<pre class="code" style="font-size:20px;"><span class="tok-key">public class</span> <span class="tok-type">App</span> : <span class="tok-type">IExternalApplication</span>
+{
+    <span class="tok-key">public</span> <span class="tok-type">Result</span> OnStartup(<span class="tok-type">UIControlledApplication</span> app)
+    {
+        <span class="tok-key">string</span> tab = <span class="tok-str">"Arkadis"</span>;
+        app.CreateRibbonTab(tab);
+        <span class="tok-type">RibbonPanel</span> panel = app.CreateRibbonPanel(tab, <span class="tok-str">"Hola"</span>);
+
+        <span class="tok-key">var</span> btn = <span class="tok-key">new</span> <span class="tok-type">PushButtonData</span>(
+            <span class="tok-str">"btnHola"</span>, <span class="tok-str">"Hola\nRevit"</span>,
+            <span class="tok-type">Assembly</span>.GetExecutingAssembly().Location,
+            <span class="tok-str">"HolaRevit.Command"</span>);
+
+        panel.AddItem(btn);
+        <span class="tok-key">return</span> <span class="tok-type">Result</span>.Succeeded;
+    }
+
+    <span class="tok-key">public</span> <span class="tok-type">Result</span> OnShutdown(<span class="tok-type">UIControlledApplication</span> app)
+        =&gt; <span class="tok-type">Result</span>.Succeeded;
+}</pre>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">83 / 97</div>
+  </div>
+</section>
+
+<!-- 84: Pero... cómo entregar al cliente? -->
+<section data-label="84 Cliente no técnico">
+  <div class="slide-frame" style="justify-content:center;">
+    <div class="eyebrow-mini">El siguiente reto</div>
+    <div style="font-size:64px; line-height:1.25; font-weight:600; max-width:1700px; margin-top:32px; color:var(--gris-900); letter-spacing:-0.02em;">
+      ¿Cómo le entregas tu add-in a un cliente que <span style="color:#D02525;">no sabe abrir <code>%APPDATA%</code></span>?
+    </div>
+    <div style="font-size:48px; color:var(--gris-600); margin-top:48px; font-style:italic;">
+      Ahí entra <span style="color:var(--azul-revit); font-style:normal; font-weight:700;">Inno Setup</span>.
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">84 / 97</div>
+  </div>
+</section>
+
+<!-- 85: Inno Setup -->
+<section data-label="85 Inno Setup">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Tu instalador profesional</div>
+    <h1 class="slide-title" style="margin-top:24px;">¿Qué es Inno Setup?</h1>
+    <div style="margin-top:48px; display:grid; grid-template-columns: 1fr 1fr; gap:32px; flex:1;">
+      <div>
+        <ul class="clean">
+          <li>Instalador <strong>gratuito y open source</strong> para Windows</li>
+          <li>Creado por <strong>Jordan Russell en 1997</strong></li>
+          <li>Sitio: <code style="font-size:20px; color:var(--azul-revit);">jrsoftware.org/isinfo.php</code></li>
+          <li>Tú escribes un script <code>.iss</code> y genera un <code>.exe</code></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div style="font-size:22px; color:var(--gris-600); letter-spacing:0.15em; text-transform:uppercase; font-weight:600;">Lo usan miles de proyectos pro</div>
+        <div style="font-size:32px; font-weight:600; color:var(--gris-900); margin-top:24px; line-height:1.5;">
+          Inkscape · Audacity ·<br/>RevitLookup · Notepad++…
+        </div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">85 / 97</div>
+  </div>
+</section>
+
+<!-- 86: Para qué lo usaremos -->
+<section data-label="86 Inno para qué">
+  <div class="slide-frame" style="justify-content:center; background:var(--gris-100);">
+    <div class="eyebrow-mini">El objetivo</div>
+    <div style="font-size:60px; line-height:1.25; font-weight:600; max-width:1700px; margin-top:32px; color:var(--gris-900); letter-spacing:-0.02em;">
+      Que el cliente haga<br/>
+      <span style="color:var(--azul-revit);">doble-click → Siguiente → Siguiente → Instalar</span><br/>
+      y aparezca su botón en Revit.
+    </div>
+    <div style="font-size:32px; color:var(--gris-700); margin-top:48px; max-width:1600px; line-height:1.4;">
+      La próxima clase armamos el <code style="background:#fff; padding:4px 12px; border-radius:6px; font-family:'JetBrains Mono',monospace;">.iss</code> que copia DLL + .addin a la carpeta correcta de Revit, sin que nadie toque <code>%APPDATA%</code>.
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">86 / 97</div>
+  </div>
+</section>
+
+<!-- ============== SECCIÓN 8 — ¿CUÁNDO USAR QUÉ? ============== -->
+
+<!-- 87: Divisoria sección 08 -->
+<section data-label="87 Sección 08">
+  <div class="slide-frame divider" style="justify-content:center;">
+    <div class="label">Sección 08</div>
+    <div style="display:flex; align-items:flex-end; gap:48px; margin-top:24px;">
+      <div class="num">08</div>
+      <div style="padding-bottom:60px;">
+        <div class="stitle">Dynamo, Python o C#:<br/>¿cuándo usar qué?</div>
+        <div style="font-size:28px; color:rgba(255,255,255,0.7); margin-top:32px;">10 minutos · Cierre + Q&A</div>
+      </div>
+    </div>
+    <div class="footer light">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num light">87 / 97</div>
+  </div>
+</section>
+
+<!-- 88: Dynamo -->
+<section data-label="88 Dynamo">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Opción 1 · Visual</div>
+    <div style="display:flex; align-items:center; gap:24px; margin-top:24px;">
+      <h1 class="slide-title">Dynamo</h1>
+      <span class="badge-pill pill-green" style="font-size:24px; padding:8px 20px;">VISUAL</span>
+    </div>
+    <div style="margin-top:48px; display:grid; grid-template-columns: 1fr 1fr; gap:32px; flex:1;">
+      <div>
+        <div style="font-size:24px; color:var(--gris-600); letter-spacing:0.15em; text-transform:uppercase; font-weight:600;">Para</div>
+        <div style="font-size:28px; line-height:1.4; margin-top:12px;">Tareas únicas, prototipos, exploración geométrica, paramétricos generativos.</div>
+        <div style="font-size:24px; color:var(--gris-600); letter-spacing:0.15em; text-transform:uppercase; font-weight:600; margin-top:32px;">Quién lo usa</div>
+        <div style="font-size:28px; margin-top:12px;">El arquitecto / proyectista mismo.</div>
+      </div>
+      <div>
+        <div style="background:var(--menta-suave); padding:24px; border-radius:12px; border-left:6px solid var(--menta);">
+          <div style="font-size:22px; color:#008f6c; font-weight:700;">✅ Pro</div>
+          <div style="font-size:22px; line-height:1.4; margin-top:8px;">Visual, sin compilar, se modifica en caliente.</div>
+        </div>
+        <div style="background:#FFF5F5; padding:24px; border-radius:12px; border-left:6px solid #D02525; margin-top:16px;">
+          <div style="font-size:22px; color:#D02525; font-weight:700;">❌ Contra</div>
+          <div style="font-size:22px; line-height:1.4; margin-top:8px;">No escala, difícil de versionar, lento en lotes grandes.</div>
+        </div>
+        <div style="background:var(--gris-100); padding:20px; border-radius:12px; margin-top:16px;">
+          <div style="font-size:22px; color:var(--gris-600); font-weight:600;">💼 Ejemplo real</div>
+          <div style="font-size:20px; line-height:1.4; margin-top:8px; font-style:italic;">"Renombrar 200 vistas siguiendo una regla, una sola vez en este proyecto."</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">88 / 97</div>
+  </div>
+</section>
+
+<!-- 89: Dynamo + Python -->
+<section data-label="89 Dynamo Python">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Opción 2 · Híbrido</div>
+    <div style="display:flex; align-items:center; gap:24px; margin-top:24px;">
+      <h1 class="slide-title">Dynamo + Python</h1>
+      <span class="badge-pill pill-blue" style="font-size:24px; padding:8px 20px;">HÍBRIDO</span>
+    </div>
+    <div style="margin-top:48px; display:grid; grid-template-columns: 1fr 1fr; gap:32px; flex:1;">
+      <div>
+        <div style="font-size:24px; color:var(--gris-600); letter-spacing:0.15em; text-transform:uppercase; font-weight:600;">Para</div>
+        <div style="font-size:28px; line-height:1.4; margin-top:12px;">Cuando Dynamo se queda corto pero no quieres salir del entorno.</div>
+        <div style="font-size:24px; color:var(--gris-600); letter-spacing:0.15em; text-transform:uppercase; font-weight:600; margin-top:32px;">Quién lo usa</div>
+        <div style="font-size:28px; margin-top:12px;">BIM Manager con algo de programación.</div>
+      </div>
+      <div>
+        <div style="background:var(--menta-suave); padding:24px; border-radius:12px; border-left:6px solid var(--menta);">
+          <div style="font-size:22px; color:#008f6c; font-weight:700;">✅ Pro</div>
+          <div style="font-size:22px; line-height:1.4; margin-top:8px;">Une lo visual con la potencia de Python.</div>
+        </div>
+        <div style="background:#FFF5F5; padding:24px; border-radius:12px; border-left:6px solid #D02525; margin-top:16px;">
+          <div style="font-size:22px; color:#D02525; font-weight:700;">❌ Contra</div>
+          <div style="font-size:22px; line-height:1.4; margin-top:8px;">Depende de IronPython/CPython, debugging limitado.</div>
+        </div>
+        <div style="background:var(--gris-100); padding:20px; border-radius:12px; margin-top:16px;">
+          <div style="font-size:22px; color:var(--gris-600); font-weight:600;">💼 Ejemplo real</div>
+          <div style="font-size:20px; line-height:1.4; margin-top:8px; font-style:italic;">"Un nodo Python que llama a una API REST de un proveedor de muros prefabricados y trae datos al modelo."</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">89 / 97</div>
+  </div>
+</section>
+
+<!-- 90: C# Add-in -->
+<section data-label="90 C# Addin">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Opción 3 · Lo que hicimos hoy</div>
+    <div style="display:flex; align-items:center; gap:24px; margin-top:24px;">
+      <h1 class="slide-title">C# Add-in</h1>
+      <span class="badge-pill pill-orange" style="font-size:24px; padding:8px 20px;">PROFESIONAL</span>
+    </div>
+    <div style="margin-top:48px; display:grid; grid-template-columns: 1fr 1fr; gap:32px; flex:1;">
+      <div>
+        <div style="font-size:24px; color:var(--gris-600); letter-spacing:0.15em; text-transform:uppercase; font-weight:600;">Para</div>
+        <div style="font-size:26px; line-height:1.4; margin-top:12px;">Herramientas reutilizables, distribución a múltiples usuarios, performance crítica, integración con sistemas externos, productos comerciales.</div>
+        <div style="font-size:24px; color:var(--gris-600); letter-spacing:0.15em; text-transform:uppercase; font-weight:600; margin-top:24px;">Quién lo usa</div>
+        <div style="font-size:28px; margin-top:12px;">Developer / automatizador (<strong>tú</strong> al final del módulo).</div>
+      </div>
+      <div>
+        <div style="background:var(--menta-suave); padding:24px; border-radius:12px; border-left:6px solid var(--menta);">
+          <div style="font-size:22px; color:#008f6c; font-weight:700;">✅ Pro</div>
+          <div style="font-size:22px; line-height:1.4; margin-top:8px;">Rápido, robusto, instalable, monetizable.</div>
+        </div>
+        <div style="background:#FFF5F5; padding:24px; border-radius:12px; border-left:6px solid #D02525; margin-top:16px;">
+          <div style="font-size:22px; color:#D02525; font-weight:700;">❌ Contra</div>
+          <div style="font-size:22px; line-height:1.4; margin-top:8px;">Curva de aprendizaje, requiere compilar.</div>
+        </div>
+        <div style="background:var(--gris-100); padding:20px; border-radius:12px; margin-top:16px;">
+          <div style="font-size:22px; color:var(--gris-600); font-weight:600;">💼 Ejemplos reales</div>
+          <div style="font-size:20px; line-height:1.4; margin-top:8px; font-style:italic;">"Plugin que valida estándares BIM al guardar." · "Exportador a SAP de cantidades." · "Botón que genera 50 láminas en 3 segundos."</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">90 / 97</div>
+  </div>
+</section>
+
+<!-- 91: Tabla decisión -->
+<section data-label="91 Tabla decisión">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Resumen</div>
+    <h1 class="slide-title" style="margin-top:24px;">Tabla de decisión rápida</h1>
+    <div style="margin-top:48px; flex:1;">
+      <table class="t">
+        <thead>
+          <tr><th>Criterio</th><th>Dynamo</th><th>Dynamo + Python</th><th>C# Add-in</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Una sola vez</strong></td><td>✅</td><td>✅</td><td>❌</td></tr>
+          <tr><td><strong>Reusable por equipo</strong></td><td>⚠️</td><td>⚠️</td><td>✅</td></tr>
+          <tr><td><strong>Cliente no técnico ejecuta</strong></td><td>❌</td><td>❌</td><td>✅</td></tr>
+          <tr><td><strong>Performance lote grande</strong></td><td>❌</td><td>⚠️</td><td>✅</td></tr>
+          <tr><td><strong>Versionado Git</strong></td><td>⚠️</td><td>⚠️</td><td>✅</td></tr>
+          <tr><td><strong>Tiempo de desarrollo</strong></td><td>minutos</td><td>horas</td><td>días</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">91 / 97</div>
+  </div>
+</section>
+
+<!-- 92: Curiosidad - Jeremy Tammik -->
+<section data-label="92 Curiosidad Jeremy">
+  <div class="slide-frame curiosity" style="justify-content:center;">
+    <div class="badge" style="margin-bottom:48px;"><div class="bulb">💡</div> Pregunta curiosa</div>
+    <div class="q" style="font-size:48px;">
+      ¿Quién es <strong>Jeremy Tammik</strong> y por qué su blog <strong>The Building Coder</strong> es legendario?
+    </div>
+    <div style="font-size:26px; color:var(--gris-700); margin-top:40px; max-width:1700px; line-height:1.5;">
+      Trabajó <strong>17 años</strong> como Developer Advocate de Autodesk para la API de Revit. Su blog (<strong>2008–2025</strong>) es la enciclopedia no oficial de la API.
+    </div>
+    <div style="font-size:24px; color:var(--gris-700); margin-top:24px; max-width:1700px; line-height:1.5;">
+      Se retiró en <strong>junio 2025</strong> y Typepad cerró el <strong>30 de septiembre de 2025</strong>. Hoy el contenido vive en mirrors:<br/>
+      <code style="font-size:22px; color:var(--azul-revit);">jeremytammik.github.io/tbc/a/</code> · <code style="font-size:22px; color:var(--azul-revit);">thebuildingcoder.archilabs.ai/</code>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">92 / 97</div>
+  </div>
+</section>
+
+<!-- 93: Q&A -->
+<section data-label="93 QA">
+  <div class="slide-frame" style="justify-content:center; background:var(--azul-profundo); color:#fff; align-items:center; text-align:center;">
+    <div style="font-size:280px; line-height:1; font-weight:800; color:var(--naranja);">?</div>
+    <div style="font-size:96px; line-height:1.1; font-weight:800; margin-top:24px; letter-spacing:-0.03em;">
+      ¿Preguntas?
+    </div>
+    <div style="font-size:32px; color:rgba(255,255,255,0.7); margin-top:48px; max-width:1400px; line-height:1.4;">
+      Tómate tu tiempo. No hay pregunta tonta cuando estás aprendiendo una API nueva.
+    </div>
+    <div class="footer light">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num light">93 / 97</div>
+  </div>
+</section>
+
+<!-- ============== SECCIÓN 9 — RECURSOS Y CIERRE ============== -->
+
+<!-- 94: Enlaces -->
+<section data-label="94 Enlaces">
+  <div class="slide-frame tight">
+    <div class="eyebrow-mini">Recursos · Guarda este slide</div>
+    <h1 class="slide-title" style="margin-top:16px;">Enlaces oficiales</h1>
+    <div style="margin-top:24px; flex:1; display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; align-content:start;">
+      <div class="lnk"><span class="i">📖</span><div><strong>Revit API Docs</strong><br/><code>revitapidocs.com/2026/</code></div></div>
+      <div class="lnk"><span class="i">📘</span><div><strong>Autodesk Help</strong><br/><code>help.autodesk.com/view/RVT/2026/ENU/</code></div></div>
+      <div class="lnk"><span class="i">📦</span><div><strong>Revit SDK NuGet</strong><br/><code>nuget.org/packages/Autodesk.Revit.SDK</code></div></div>
+      <div class="lnk"><span class="i">💻</span><div><strong>Visual Studio 2022</strong><br/><code>visualstudio.microsoft.com/es/vs/community/</code></div></div>
+      <div class="lnk"><span class="i">🔧</span><div><strong>.NET 8 SDK</strong><br/><code>dotnet.microsoft.com/es-es/download/dotnet/8.0</code></div></div>
+      <div class="lnk"><span class="i">🧰</span><div><strong>RevitLookup</strong><br/><code>github.com/lookup-foundation/RevitLookup</code></div></div>
+      <div class="lnk"><span class="i">🌐</span><div><strong>Foro oficial Revit API</strong><br/><code>forums.autodesk.com/t5/revit-api-forum/bd-p/160</code></div></div>
+      <div class="lnk"><span class="i">📝</span><div><strong>The Building Coder · GitHub</strong><br/><code>jeremytammik.github.io/tbc/a/</code></div></div>
+      <div class="lnk"><span class="i">📝</span><div><strong>The Building Coder · ArchiLabs</strong><br/><code>thebuildingcoder.archilabs.ai/</code></div></div>
+      <div class="lnk"><span class="i">📰</span><div><strong>Blog Autodesk</strong><br/><code>blog.autodesk.io/</code></div></div>
+      <div class="lnk"><span class="i">📦</span><div><strong>Inno Setup</strong><br/><code>jrsoftware.org/isinfo.php</code></div></div>
+      <div class="lnk"><span class="i">🐍</span><div><strong>pyRevit</strong><br/><code>github.com/pyrevitlabs/pyRevit</code></div></div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">94 / 97</div>
+  </div>
+  <style>
+    .lnk { background:#fff; border:1px solid #E5E5EA; border-radius:10px; padding:16px 18px; display:flex; gap:14px; align-items:center; font-size:18px; line-height:1.35; color:var(--gris-800); }
+    .lnk .i { font-size:32px; flex-shrink:0; }
+    .lnk code { font-family:'JetBrains Mono',monospace; color:var(--azul-revit); font-size:15px; word-break:break-all; }
+  </style>
+</section>
+
+<!-- 95: Tarea autónoma -->
+<section data-label="95 Tarea">
+  <div class="slide-frame">
+    <div class="eyebrow-mini">Trabajo autónomo · 20 horas</div>
+    <h1 class="slide-title" style="margin-top:24px;">Tu tarea para la próxima clase</h1>
+    <div style="margin-top:60px; display:grid; grid-template-columns: 1fr; gap:20px; flex:1;">
+      <div class="task"><div class="step-num" style="background:var(--azul-revit);">1</div><div><strong>Reproduce el ejercicio</strong> Hello Revit completo, paso por paso, en tu máquina.</div></div>
+      <div class="task"><div class="step-num" style="background:var(--azul-revit);">2</div><div><strong>Modifícalo</strong> para que muestre el conteo separado de muros, puertas y ventanas. <span style="color:var(--gris-600);">Tip: <code>OfCategory(BuiltInCategory.OST_Walls)</code></span></div></div>
+      <div class="task"><div class="step-num" style="background:var(--azul-revit);">3</div><div>Instala <strong>RevitLookup</strong> y explora un modelo cualquiera. Va a cambiar tu vida.</div></div>
+      <div class="task"><div class="step-num" style="background:var(--azul-revit);">4</div><div>Lee <strong>2 posts de The Building Coder</strong> a tu elección.</div></div>
+    </div>
+    <div class="footer">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num">95 / 97</div>
+  </div>
+  <style>
+    .task { background:var(--gris-100); border-radius:12px; padding:24px 28px; display:flex; gap:24px; align-items:center; font-size:26px; line-height:1.4; color:var(--gris-800); }
+  </style>
+</section>
+
+<!-- 96: Próxima clase -->
+<section data-label="96 Próxima clase">
+  <div class="slide-frame" style="justify-content:center; background:linear-gradient(135deg, #1E3A5F, #0696D7); color:#fff;">
+    <div style="font-size:24px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.6); font-weight:600;">Próxima clase</div>
+    <div style="font-size:80px; line-height:1.15; font-weight:800; margin-top:32px; max-width:1700px; letter-spacing:-0.03em;">
+      Unidad 2 — IExternalApplication, Ribbon propio, distribuyendo con Inno Setup.
+    </div>
+    <div style="font-size:32px; color:rgba(255,255,255,0.85); margin-top:48px; max-width:1500px; line-height:1.4;">
+      Vas a salir con un instalador <code>.exe</code> que puedes mandarle a un cliente por WhatsApp.
+    </div>
+    <div class="footer light">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num light">96 / 97</div>
+  </div>
+</section>
+
+<!-- 97: Gracias -->
+<section data-label="97 Gracias">
+  <div class="slide-frame portada" style="justify-content:center; align-items:center; text-align:center;">
+    <div style="font-size:160px; line-height:1; font-weight:800; letter-spacing:-0.04em;">¡Gracias!</div>
+    <div style="font-size:36px; color:rgba(255,255,255,0.85); margin-top:48px;">Nos vemos en la Unidad 2.</div>
+    <div style="margin-top:120px; display:flex; gap:64px; align-items:center;">
+      <div style="text-align:left;">
+        <div style="font-size:22px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.6); font-weight:600;">Instructor</div>
+        <div style="font-size:32px; font-weight:700; margin-top:8px;">Ing. Brian Mendoza Márquez</div>
+        <div style="font-size:24px; color:rgba(255,255,255,0.75); margin-top:4px;">Especialista en Automatizaciones</div>
+      </div>
+      <div style="width:1px; height:80px; background:rgba(255,255,255,0.3);"></div>
+      <div style="text-align:left;">
+        <div style="font-size:22px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.6); font-weight:600;">Contacto</div>
+        <div style="font-size:24px; margin-top:8px; line-height:1.5;">[Email]<br/>[LinkedIn] · [GitHub]</div>
+      </div>
+    </div>
+    <div class="footer light">Ing. Brian Mendoza Márquez · Especialista en Automatizaciones · Arkadis – Módulo 8 · Unidad 1</div>
+    <div class="slide-num light">97 / 97</div>
+  </div>
+</section>
+
+</deck-stage>
+<script type="application/json" id="speaker-notes">[]</script>
+</body>
+</html>
